@@ -1,0 +1,17 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#nav {
+    background-color: lightgray;
+    width: 100%;
+    height: 25px;
+}
+
+#footer {
+    background-color: lightgray;
+    width:100%;
+    height: 25px;
+    margin-bottom: 0%;
+}
