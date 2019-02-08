@@ -1,11 +1,12 @@
 var button = $("button")
 
 $("#log-in").on("click", function () {
-    alert("hello");
     $("#landing-page").hide();
     $("#signup-page").hide();
     $("#projects-page").hide();
     $("#login-page").show();
+    $(".main-section").hide();
+    $(".section").hide();
 });
 
 $("#enter").on("click", function() {
@@ -13,6 +14,8 @@ $("#enter").on("click", function() {
     $("#signup-page").hide();
     $("#login-page").hide();
     $("#projects-page").show();
+    $(".main-section").hide();
+    $(".section").hide();
 });
 
 $("#register").on("click", function () {
@@ -20,6 +23,8 @@ $("#register").on("click", function () {
     $("#login-page").hide();
     $("#projects-page").hide();
     $("#signup-page").show();
+    $(".main-section").hide();
+    $(".section").hide();
 });
 
 $("#sign-up").on("click", function () {
@@ -27,5 +32,7 @@ $("#sign-up").on("click", function () {
     $("#login-page").hide();
     $("#signup-page").hide();
     $("#projects-page").show();
+    $(".main-section").hide();
+    $(".section").hide();
 });
 

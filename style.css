@@ -5,13 +5,244 @@ html, body {
 
 #nav {
     background-color: lightgray;
+    position: fixed;
+    top: 0px;
     width: 100%;
-    height: 25px;
+    height: 35px;
+}
+header {
+    font: bold;
+    margin-top: 5px;
+    font-size: 25px;
 }
 
 #footer {
     background-color: lightgray;
     width:100%;
-    height: 25px;
-    margin-bottom: 0%;
+    height: 35px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
 }
+
+/* landing page */
+
+#landing-page {
+    background-image: url("https://images.unsplash.com/photo-1452860606245-08befc0ff44b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+    height: 500px;
+    width: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    margin-top: 2%;
+}
+
+h1 {
+    padding-top: 12%;
+    font-size: 40px;
+    color: white;
+}
+
+h2 {
+    font-size: 35px;
+    color: white;
+}
+ .text-block1 {
+    width:20%;
+    border: 2px solid black;
+    padding:10px;
+    display:inline-block;
+    box-sizing: border-box;
+    margin-left: 20%;
+ }
+
+ .main-section {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+    
+ }
+
+ .section {
+     margin-left: 10%;
+     margin-right: 10%;
+ }
+
+ .landing-img {
+     height: 150px;
+     width: 150px;
+     margin-left: 30%;
+     float: left;
+ }
+ 
+ .text-block2 {
+    width:20%;
+    border: 2px solid black;
+    padding: 10px;
+    display:inline-block;
+    box-sizing: border-box;
+ }
+
+ .text-block3 {
+    width:20%;
+    border: 2px solid black;
+    padding:10px;
+    display:inline-block;
+    box-sizing: border-box;
+    
+ }
+
+ .text-container {
+     text-align: center;
+     margin-left: 20%;
+     margin-right: 20%;
+     font-size: 25px;
+ }
+
+ #log-in {
+     margin-bottom: 10%;
+     background-color: lightgrey;
+     border-radius: 5px;
+     height: 10%;
+     width: 10%;
+     font-size: 20px;
+ }
+#register {
+    margin-bottom: 10%;
+     background-color: lightgrey;
+     border-radius: 5px;
+     height: 10%;
+     width: 12%;
+     font-size: 20px;
+}
+
+ /* login-page*/
+
+ #login-page {
+    background-color: rgba(105, 174, 178, 1);
+    font-family: "Roboto", helvetica, sans-serif;
+    padding: 60px 0 0;
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  fieldset {
+    padding: 0;
+    border: 0;
+    margin: 0;
+  }
+  
+  .login-form {
+    width: 400px;
+    padding: 40px;
+    border-radius: 3px;
+    background:white;
+    margin: 0 auto;
+  }
+  
+  .login-form legend {
+    width: 100%;
+    line-height: 38px;
+    font-size: 35px;
+    font-weight: 300;
+    color: #565656;
+    text-align: center;
+    letter-spacing: 0;
+    margin: 0 auto 45px;
+  }
+  
+  
+  input[type="text"],
+  input[type="password"],
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+    text-align: left;
+    padding: 15px;
+    border: 2px solid #e7e7e7;
+    border-radius: 3px;
+    background: #fcfcfc;
+    margin: 10px auto 20px;
+    transition: opacity 0.4s;
+  }
+  
+  button[type="submit"] {
+    height: auto;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    background: darkslategray;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+  
+  /*sign-up page*/
+
+  #signup-page {
+    background-color: rgba(105, 174, 178, 1);
+    font-family: "Roboto", helvetica, sans-serif;
+    padding: 60px 0 0;
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  fieldset {
+    padding: 0;
+    border: 0;
+    margin: 0;
+  }
+  
+  .signup-form {
+    width: 400px;
+    padding: 40px;
+    border-radius: 3px;
+    background:white;
+    margin: 0 auto;
+  }
+  
+  .signup-form legend {
+    width: 100%;
+    line-height: 38px;
+    font-size: 35px;
+    font-weight: 300;
+    color: #565656;
+    text-align: center;
+    letter-spacing: 0;
+    margin: 0 auto 45px;
+  }
+  
+  
+  input[type="text"],
+  input[type="password"],
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+    text-align: left;
+    padding: 15px;
+    border: 2px solid #e7e7e7;
+    border-radius: 3px;
+    background: #fcfcfc;
+    margin: 10px auto 20px;
+    transition: opacity 0.4s;
+  }
+  
+  button[type="submit"] {
+    height: auto;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    background:darkslategrey;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+
