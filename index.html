@@ -9,6 +9,7 @@
   <body>
     <div id="nav">
         <header>SimplyProject</header>
+        
     </div>
 
     <div id="landing-page">
@@ -19,15 +20,15 @@
     </div>
 
     <section class= "main-section">
-        <div class= "text-block1">
+        <div class= "text-block">
             <img class="landing-img" src="https://images.unsplash.com/photo-1529651737248-dad5e287768e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1402&q=80">
             <p>Plan your project from start to finish</p>
         </div>
-        <div class = "text-block2">
+        <div class = "text-block">
             <img class="landing-img" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
             <p>Track your project's progress</p>
         </div>
-        <div class="text-block3">
+        <div class="text-block">
             <img class="landing-img" src="https://images.unsplash.com/photo-1515437689879-4dd6c1620d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80">
             <p>Jot down your tips and tricks</p>
         </div>
@@ -40,7 +41,7 @@
                 Organize your projects in advance with SimplyProject. Track your start date, 
                 end date, materials needed, costs, and notes all in one place. 
             </p>
-            <h2> Try it now!</h2>
+            <h3> Try it now!</h3>
                 <button id="log-in">Log In</button>
                 <button id="register">Register</button>
         </div>
@@ -97,7 +98,24 @@
       </div>
 
       <div id="details-page" hidden>
-        
+            <form action="details-page">
+                <fieldset>
+                    <legend>Details</legend>
+                    <label for="start-date">Start Date:</label>
+                    <input type="text" placeholder="Type here" name="sdate" id="start-date"/>
+                    <label for="budget">Budget</label>
+                    <input type="text" placeholder="Budget here" name="budget" id="budget"/>
+                    <label for="materials">Materials Needed</label>
+                    <input type="text" placeholder="Materials here" name="materials" id="materials"/>
+                    <label for="end-date">End Date:</label>
+                    <input type="text" placeholder="Type here" name="edate" id="end-date"/>
+                    <button id="update">Update</button>
+                    <button id="delete">Delete</button>
+                </fieldset>
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" name="notes" placeholder="Write something"></textarea>
+                    <button id="back">Back to Projects</button>
+            </form>
       </div>
 
       <div id="update-page" hidden>
