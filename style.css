@@ -1,257 +1,274 @@
-html, body {
-    margin: 0;
-    padding: 0;
+/****************** BASE ******************/
+* {
+  box-sizing: border-box;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+/****************** COMMON ******************/
+
 #nav {
-    background-color: lightgray;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    height: 30px;
-    border-bottom: 1px solid black;
+  background-color: lightgray;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px solid black;
 }
 header {
-    float: left;
-    color: black;
-    margin: 0 10px;
+  float: left;
+  color: black;
+  margin: 0 10px;
 }
 
 #footer {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: lightgray;
-    color:black;
-    text-align: center;
-    border-top: 1px solid black;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: lightgray;
+  color: black;
+  text-align: center;
+  border-top: 1px solid black;
 }
 
-/* landing page */
+/****************** LANDING PAGE ******************/
 
-#landing-page-intro{
-    background-image: url("https://images.unsplash.com/photo-1452860606245-08befc0ff44b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
-    height: 500px;
-    width: cover;
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
-    margin-top: 2%;
+#landing-page-intro {
+  background-image: url("https://images.unsplash.com/photo-1452860606245-08befc0ff44b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+  height: 500px;
+  width: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  margin-top: 2%;
 }
 
 h1 {
-    padding-top: 12%;
-    font-size: 30px;
-    color: white;
+  padding-top: 12%;
+  font-size: 30px;
+  color: white;
 }
 
 h2 {
-    font-size: 35px;
-    color: white;
+  font-size: 35px;
+  color: white;
 }
- 
- .text-block {
-    width: 100%;
-    background-color: white;
-    padding: 15px;
-    display: inline-block;
-    box-sizing: border-box;
-    font-size: 18px;
-    margin-bottom: 10%;
-    border: 2px solid black;
-  
- }
 
+.text-block {
+  width: 100%;
+  background-color: white;
+  padding: 15px;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 18px;
+  margin-bottom: 10%;
+  border: 2px solid black;
+  min-height: 215px;
+}
 
- .main-section {
-    text-align: center;
-    font: bold;
-    font-size: 18px;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 10%;
- }
+.main-section {
+  text-align: center;
+  font: bold;
+  font-size: 18px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10%;
+}
 
- .section {
-    background-color: white;
-    text-align: center;
-    font: bold;
-    font-size: 18px;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 0;
- }
+.section {
+  background-color: white;
+  text-align: center;
+  font: bold;
+  font-size: 18px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 0;
+}
 
- .landing-img {
-     height: 150px;
-     width: 150px;
-     margin-left: 10%;
-     
- }
- 
+.landing-img {
+  height: 100px;
+  max-width: 200px;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+}
 
- .text-container {
-     text-align: center;
-     margin-left: 10%;
-     margin-right: 10%;
-     font-size: 20px;
- }
+#landing-img-1 {
+  background-image: url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+}
+#landing-img-2 {
+  background-image: url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+}
+#landing-img-3 {
+  background-image: url("https://images.unsplash.com/photo-1515437689879-4dd6c1620d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+}
 
- #log-in {
-     margin-bottom: 15%;
-     background-color: lightgrey;
-     border-radius: 5px;
-     height: 10%;
-     width: 25%;
-     font-size: 20px;
- }
+.text-container {
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 20px;
+}
+
+#log-in {
+  margin-bottom: 15%;
+  background-color: lightgrey;
+  border-radius: 5px;
+  height: 10%;
+  width: 25%;
+  font-size: 20px;
+}
 #register {
-    margin-bottom: 10%;
-     background-color: lightgrey;
-     border-radius: 5px;
-     height: 10%;
-     width: 25%;
-     font-size: 20px;
+  margin-bottom: 10%;
+  background-color: lightgrey;
+  border-radius: 5px;
+  height: 10%;
+  width: 25%;
+  font-size: 20px;
 }
 
- /* login-page*/
+/****************** LOGIN PAGE ******************/
 
- #login-page {
-    background-color: rgba(105, 174, 178, 1);
-    font-family: "Roboto", helvetica, sans-serif;
-    padding: 60px 0 0;
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  fieldset {
-    padding: 0;
-    border: 0;
-    margin: 0;
-  }
-  
-  .login-form {
-    width: 400px;
-    padding: 40px;
-    border-radius: 3px;
-    background:white;
-    margin: 0 auto;
-  }
-  
-  .login-form legend {
-    width: 100%;
-    line-height: 38px;
-    font-size: 35px;
-    font-weight: 300;
-    color: #565656;
-    text-align: center;
-    letter-spacing: 0;
-    margin: 0 auto 45px;
-  }
-  
-  
-  input[type="text"],
-  input[type="password"],
-  button[type="submit"] {
-    display: block;
-    width: 100%;
-    height: auto;
-    font-size: 18px;
-    text-align: left;
+#login-page {
+  background-color: rgba(105, 174, 178, 1);
+  font-family: "Roboto", helvetica, sans-serif;
+  padding: 85px 0 0;
+  margin: 0;
+  font-size: 18px;
+  height: 100%;
+}
+
+fieldset {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.login-form {
+  width: 50%;
+  padding: 40px;
+  border-radius: 3px;
+  background: white;
+  margin: 0 auto;
+}
+
+.login-form legend {
+  width: 100%;
+  line-height: 38px;
+  font-size: 35px;
+  font-weight: 300;
+  color: #565656;
+  text-align: center;
+  letter-spacing: 0;
+  margin: 0 auto 45px;
+}
+
+input[type="text"],
+input[type="password"],
+button[type="submit"] {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: auto;
+  font-size: 18px;
+  text-align: left;
+  padding: 15px;
+  border: 2px solid #e7e7e7;
+  border-radius: 3px;
+  background: #fcfcfc;
+  margin: 10px auto 20px;
+  transition: opacity 0.4s;
+}
+
+button[type="submit"] {
+  height: auto;
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+  background: darkslategray;
+  border: 0;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+/****************** SIGNUP PAGE ******************/
+
+#signup-page {
+  background-color: rgba(105, 174, 178, 1);
+  font-family: "Roboto", helvetica, sans-serif;
+  padding: 60px 0 0;
+  margin: 0;
+  font-size: 18px;
+}
+
+fieldset {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.signup-form {
+  width: 400px;
+  padding: 40px;
+  border-radius: 3px;
+  background: white;
+  margin: 0 auto;
+}
+
+.signup-form legend {
+  width: 100%;
+  line-height: 38px;
+  font-size: 35px;
+  font-weight: 300;
+  color: #565656;
+  text-align: center;
+  letter-spacing: 0;
+  margin: 0 auto 45px;
+}
+
+input[type="text"],
+input[type="password"],
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-size: 18px;
+  text-align: left;
+  padding: 15px;
+  border: 2px solid #e7e7e7;
+  border-radius: 3px;
+  background: #fcfcfc;
+  margin: 10px auto 20px;
+  transition: opacity 0.4s;
+}
+
+button[type="submit"] {
+  height: auto;
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+  background: darkslategrey;
+  border: 0;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .text-block {
+    float: left;
+    width: 33.3%;
+    background-color: white;
     padding: 15px;
-    border: 2px solid #e7e7e7;
-    border-radius: 3px;
-    background: #fcfcfc;
-    margin: 10px auto 20px;
-    transition: opacity 0.4s;
+    box-sizing: border-box;
+    margin-right: -4px;
+    border: 2px solid black;
   }
-  
-  button[type="submit"] {
-    height: auto;
-    font-size: 22px;
-    font-weight: 500;
-    text-align: center;
-    color: white;
-    background: darkslategray;
-    border: 0;
-    cursor: pointer;
-    margin-bottom: 0;
-  }
-  
-  /*sign-up page*/
-
-  #signup-page {
-    background-color: rgba(105, 174, 178, 1);
-    font-family: "Roboto", helvetica, sans-serif;
-    padding: 60px 0 0;
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  fieldset {
-    padding: 0;
-    border: 0;
-    margin: 0;
-  }
-  
-  .signup-form {
-    width: 400px;
-    padding: 40px;
-    border-radius: 3px;
-    background:white;
-    margin: 0 auto;
-  }
-  
-  .signup-form legend {
-    width: 100%;
-    line-height: 38px;
-    font-size: 35px;
-    font-weight: 300;
-    color: #565656;
-    text-align: center;
-    letter-spacing: 0;
-    margin: 0 auto 45px;
-  }
-  
-  
-  input[type="text"],
-  input[type="password"],
-  button[type="submit"] {
-    display: block;
-    width: 100%;
-    height: auto;
-    font-size: 18px;
-    text-align: left;
-    padding: 15px;
-    border: 2px solid #e7e7e7;
-    border-radius: 3px;
-    background: #fcfcfc;
-    margin: 10px auto 20px;
-    transition: opacity 0.4s;
-  }
-  
-  button[type="submit"] {
-    height: auto;
-    font-size: 22px;
-    font-weight: 500;
-    text-align: center;
-    color: white;
-    background:darkslategrey;
-    border: 0;
-    cursor: pointer;
-    margin-bottom: 0;
-  }
-
-  @media screen and (min-width: 768px) {
-    .text-block {
-        width:33.3%;
-        background-color:white;
-        padding:15px;
-        display:inline-block;
-        box-sizing: border-box;
-        margin-right: -4px;
-        border: 2px solid black;
-    }
-  }
+}

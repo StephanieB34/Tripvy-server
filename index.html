@@ -1,150 +1,261 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>SimplyProject</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div id="nav">
-        <header>SimplyProject</header>
-        
+      <header>SimplyProject</header>
     </div>
 
     <div id="landing-page">
-    <div id="landing-page-intro">
+      <div id="landing-page-intro">
         <h1>Too many projects?</h1>
         <h2>Keep track with this app</h2>
         <button id="log-in">Log In</button>
         <button id="register">Register</button>
-    </div>
+      </div>
 
-    <section class= "main-section">
-        <div class= "text-block">
-            <img class="landing-img" src="https://images.unsplash.com/photo-1529651737248-dad5e287768e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1402&q=80">
-            <p>Plan your project from start to finish</p>
-        </div>
-        <div class = "text-block">
-            <img class="landing-img" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
-            <p>Track your project's progress</p>
+      <section class="main-section">
+        <div class="text-block">
+          <div class="landing-img" id="landing-img-1"></div>
+          <p>Plan your project from start to finish</p>
         </div>
         <div class="text-block">
-            <img class="landing-img" src="https://images.unsplash.com/photo-1515437689879-4dd6c1620d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80">
-            <p>Jot down your tips and tricks</p>
+          <div class="landing-img" id="landing-img-2"></div>
+          <p>Track your project's progress</p>
         </div>
-    </section>
-    <section class= "section">
+        <div class="text-block">
+        <div class="landing-img" id="landing-img-3"></div>
+          <p>Jot down your tips and tricks</p>
+        </div>
+      </section>
+      <section class="section">
         <div class="text-container">
-            <h3>Trial Project</h3>
-            <p>
-                Keeping track of your projects and following deadlines can be difficult. 
-                Organize your projects in advance with SimplyProject. Track your start date, 
-                end date, materials needed, costs, and notes all in one place. 
-            </p>
-            <h3> Try it now!</h3>
-                <button id="log-in">Log In</button>
-                <button id="register">Register</button>
+          <h3>Trial Project</h3>
+          <p>
+            Keeping track of your projects and following deadlines can be
+            difficult. Organize your projects in advance with SimplyProject.
+            Track your start date, end date, materials needed, costs, and notes
+            all in one place.
+          </p>
+          <h3>Try it now!</h3>
+          <button id="log-in">Log In</button>
+          <button id="register">Register</button>
         </div>
-    </section>
+      </section>
     </div>
-
 
     <div id="login-page" hidden>
-        <form role="form" action="login" accept-charset="UTF-8" method="post" class="login-form">
-            <fieldset>
-                <legend>Log In</legend>
-                <label for="username">Username</label>
-                <input type="text" placeholder="Type here" name="username" id="uname" required/>
-                <label for="password">Password</label>
-                <input type="password" placeholder="Type here" name="password" id="password" required/>    
-                <label for="retype-password">Retype Password</label>
-                <input type="password" placeholder="Type again here" name="retype-password" id="retype-password" required/>
-                <button type="submit">Enter</button>        
-            </fieldset>
-        </form>
-    </div>
-<!--add required to each input-->
-    <div id= "signup-page" hidden>
-        <form role="form" action="login" accept-charset="UTF-8" method="post" class="signup-form">
-            <fieldset>
-                <legend>Register</legend>
-                <label for="first-name">First Name</label>
-                <input type="text" placeholder="Type here" name="first-name" id="fname"/>
-                <label for="last-name">Last Name</label>
-                <input type="text" placeholder="Type here" name="last-name" id="lname"/>
-                <label for="username">Username</label>
-                <input type="text" placeholder="Type here" name="username" id="uname"/>
-                <label for="password">Password</label>
-                <input type="password" placeholder="Type here" name="password" id="password"/>    
-                <label for="retype-password">Retype Password</label>
-                <input type="password" placeholder="Type again here" name="retype-password" id="retype-password"/>
-                <button type="submit">Sign-up</button>        
-            </fieldset>
-        </form>    
+      <form
+        role="form"
+        action="login"
+        accept-charset="UTF-8"
+        method="post"
+        class="login-form"
+      >
+        <fieldset>
+          <legend>Log In</legend>
+          <label for="username">Username</label>
+          <input
+            type="text"
+            placeholder="Type here"
+            name="username"
+            id="uname"
+            required
+          />
+          <label for="password">Password</label>
+          <input
+            type="password"
+            placeholder="Type here"
+            name="password"
+            id="password"
+            required
+          />
+          <label for="retype-password">Retype Password</label>
+          <input
+            type="password"
+            placeholder="Type again here"
+            name="retype-password"
+            id="retype-password"
+            required
+          />
+          <button type="submit">Enter</button>
+        </fieldset>
+      </form>
     </div>
 
-      <div id="projects-page" hidden>
-          <h4>Projects</h4>
-          <button id="project">Add a Project</button>
-          <p>Project title</p>
-          <ol>
-              <li>Start Date:</li>
-              <li>Budget:</li>
-              <li>Materials Needed:</li>
-              <li>End Date:</li>
-          </ol>
-          <button id="details">View Project Details</button>
+    <!--add required to each input-->
+    <div id="signup-page" hidden>
+      <form
+        role="form"
+        action="login"
+        accept-charset="UTF-8"
+        method="post"
+        class="signup-form"
+      >
+        <fieldset>
+          <legend>Register</legend>
+          <label for="first-name">First Name</label>
+          <input
+            type="text"
+            placeholder="Type here"
+            name="first-name"
+            id="fname"
+          />
+          <label for="last-name">Last Name</label>
+          <input
+            type="text"
+            placeholder="Type here"
+            name="last-name"
+            id="lname"
+          />
+          <label for="username">Username</label>
+          <input
+            type="text"
+            placeholder="Type here"
+            name="username"
+            id="uname"
+          />
+          <label for="password">Password</label>
+          <input
+            type="password"
+            placeholder="Type here"
+            name="password"
+            id="password"
+          />
+          <label for="retype-password">Retype Password</label>
+          <input
+            type="password"
+            placeholder="Type again here"
+            name="retype-password"
+            id="retype-password"
+          />
+          <button type="submit">Sign-up</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div id="projects-page" hidden>
+      <h4>Projects</h4>
+      <button id="project">Add a Project</button>
+      <p>Project title</p>
+      <ol>
+        <li>Start Date:</li>
+        <li>Budget:</li>
+        <li>Materials Needed:</li>
+        <li>End Date:</li>
+      </ol>
+      <button id="details">View Project Details</button>
+      <button id="update">Update</button>
+      <button id="delete">Delete</button>
+    </div>
+
+    <div id="details-page" hidden>
+      <form action="details-page">
+        <fieldset>
+          <legend>Details</legend>
+          <label for="start-date">Start Date:</label>
+          <input
+            type="text"
+            placeholder="Type here"
+            name="sdate"
+            id="start-date"
+          />
+          <label for="budget">Budget</label>
+          <input
+            type="text"
+            placeholder="Budget here"
+            name="budget"
+            id="budget"
+          />
+          <label for="materials">Materials Needed</label>
+          <input
+            type="text"
+            placeholder="Materials here"
+            name="materials"
+            id="materials"
+          />
+          <label for="end-date">End Date:</label>
+          <input
+            type="text"
+            placeholder="Type here"
+            name="edate"
+            id="end-date"
+          />
           <button id="update">Update</button>
           <button id="delete">Delete</button>
-      </div>
+        </fieldset>
+        <label for="notes">Notes</label>
+        <textarea
+          id="notes"
+          name="notes"
+          placeholder="Write something"
+        ></textarea>
+        <button id="back">Back to Projects</button>
+      </form>
+    </div>
 
-      <div id="details-page" hidden>
-            <form action="details-page">
-                <fieldset>
-                    <legend>Details</legend>
-                    <label for="start-date">Start Date:</label>
-                    <input type="text" placeholder="Type here" name="sdate" id="start-date"/>
-                    <label for="budget">Budget</label>
-                    <input type="text" placeholder="Budget here" name="budget" id="budget"/>
-                    <label for="materials">Materials Needed</label>
-                    <input type="text" placeholder="Materials here" name="materials" id="materials"/>
-                    <label for="end-date">End Date:</label>
-                    <input type="text" placeholder="Type here" name="edate" id="end-date"/>
-                    <button id="update">Update</button>
-                    <button id="delete">Delete</button>
-                </fieldset>
-                    <label for="notes">Notes</label>
-                    <textarea id="notes" name="notes" placeholder="Write something"></textarea>
-                    <button id="back">Back to Projects</button>
-            </form>
-      </div>
-
-      <div id="update-page" hidden>
-            <form role="form" action="login" accept-charset="UTF-8" method="post" class="update-form">
-                    <fieldset>
-                        <legend>Project</legend>
-                        <label for="name">Project Name</label>
-                        <input type="text" placeholder="Type here" name="project-name" id="product-name"/>
-                        <label for="start-date">Start Date</label>
-                        <input type="text" placeholder="Type here" name="sdate" id="start-date"/>
-                        <label for="budget">Budget</label>
-                        <input type="text" placeholder="Type here" name="budget" id="budget"/>
-                        <label for="materials">Materials Needed</label>
-                        <input type="text" placeholder="Type here" name="materials" id="materials"/>    
-                        <label for="end-date">End Date</label>
-                        <input type="text" placeholder="Type here" name="edate" id="end-date"/>
-                        <button type="submit">Create</button>        
-                    </fieldset>
-                </form>    
-      </div>
-      <div id="footer">
-          <p>By: Stephanie Beres</p>
-      </div>
+    <div id="update-page" hidden>
+      <form
+        role="form"
+        action="login"
+        accept-charset="UTF-8"
+        method="post"
+        class="update-form"
+      >
+        <fieldset>
+          <legend>Project</legend>
+          <label for="name">Project Name</label>
+          <input
+            type="text"
+            placeholder="Type here"
+            name="project-name"
+            id="product-name"
+          />
+          <label for="start-date">Start Date</label>
+          <input
+            type="text"
+            placeholder="Type here"
+            name="sdate"
+            id="start-date"
+          />
+          <label for="budget">Budget</label>
+          <input
+            type="text"
+            placeholder="Type here"
+            name="budget"
+            id="budget"
+          />
+          <label for="materials">Materials Needed</label>
+          <input
+            type="text"
+            placeholder="Type here"
+            name="materials"
+            id="materials"
+          />
+          <label for="end-date">End Date</label>
+          <input
+            type="text"
+            placeholder="Type here"
+            name="edate"
+            id="end-date"
+          />
+          <button type="submit">Create</button>
+        </fieldset>
+      </form>
+    </div>
+    <div id="footer">
+      <p>By: Stephanie Beres</p>
+    </div>
   </body>
   <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"
+  ></script>
   <script src="script.js"></script>
 </html>
