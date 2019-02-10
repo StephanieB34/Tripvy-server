@@ -199,67 +199,264 @@ button[type="submit"] {
 }
 
 /****************** SIGNUP PAGE ******************/
-
 #signup-page {
-  background-color: rgba(105, 174, 178, 1);
-  font-family: "Roboto", helvetica, sans-serif;
-  padding: 60px 0 0;
-  margin: 0;
-  font-size: 18px;
+    background-color: rgba(105, 174, 178, 1);
+    font-family: "Roboto", helvetica, sans-serif;
+    padding: 85px 0 0;
+    margin: 0;
+    font-size: 18px;
+    height: 100%;
+   
+  }
+  
+  fieldset {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    
+  }
+  
+  .signup-form {
+    width: 40%;
+    padding: 50px;
+    border-radius: 3px;
+    background: white;
+    margin: 0 auto;
+   
+  }
+  
+  .signup-form legend {
+    width: 100%;
+    line-height: 38px;
+    font-size: 35px;
+    font-weight: 300;
+    color: #565656;
+    text-align: center;
+    letter-spacing: 0;
+    margin: 0 auto 45px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  button[type="submit"] {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+    text-align: left;
+    padding: 15px;
+    border: 2px solid #e7e7e7;
+    border-radius: 3px;
+    background: #fcfcfc;
+    margin: 10px auto 20px;
+    transition: opacity 0.4s;
+  }
+  
+  button[type="submit"] {
+    height: auto;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    background: darkslategray;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+  
+      
+/*******************projects page***********************/
+
+h4 {
+    text-align: center;
+    font-size: 30px;
 }
 
-fieldset {
-  padding: 0;
-  border: 0;
-  margin: 0;
+#project {
+    float: right;
+    margin-right: 10%;
 }
 
-.signup-form {
-  width: 400px;
-  padding: 40px;
-  border-radius: 3px;
-  background: white;
-  margin: 0 auto;
+#section1 {
+    border-bottom: 2px solid rgba(105, 174, 178, 1);
 }
 
-.signup-form legend {
-  width: 100%;
-  line-height: 38px;
-  font-size: 35px;
-  font-weight: 300;
-  color: #565656;
-  text-align: center;
-  letter-spacing: 0;
-  margin: 0 auto 45px;
+#update {
+    float: right;
+    margin-right: 10%;
+    font-size: 15px;
 }
 
-input[type="text"],
-input[type="password"],
-button[type="submit"] {
-  display: block;
-  width: 100%;
-  height: auto;
-  font-size: 18px;
-  text-align: left;
-  padding: 15px;
-  border: 2px solid #e7e7e7;
-  border-radius: 3px;
-  background: #fcfcfc;
-  margin: 10px auto 20px;
-  transition: opacity 0.4s;
+#project {
+    float: right;
+    margin-right: 10%;
+    font-size: 15px;
 }
 
-button[type="submit"] {
-  height: auto;
-  font-size: 22px;
-  font-weight: 500;
-  text-align: center;
-  color: white;
-  background: darkslategrey;
-  border: 0;
-  cursor: pointer;
-  margin-bottom: 0;
+#details {
+   font-size: 15px;
 }
+
+#delete {
+    float: right;
+    margin-right: 10%;
+    font-size: 15px;
+}
+/********************details page**********************/
+
+#details-page {
+    background-color: rgba(105, 174, 178, 1);
+    font-family: "Roboto", helvetica, sans-serif;
+    padding: 85px 0 0;
+    margin: auto 0;
+    font-size: 18px;
+    height: 100%;
+  }
+  
+  fieldset {
+    padding: 0;
+    border: 0;
+    margin: 0;
+  }
+  
+  #details-form {
+    width: 50%;
+    padding: 40px;
+    border-radius: 3px;
+    background: white;
+    margin: 0 auto;
+  }
+  
+  #details-form legend {
+    width: 100%;
+    line-height: 38px;
+    font-size: 35px;
+    font-weight: 300;
+    color: #565656;
+    text-align: center;
+    letter-spacing: 0;
+    margin: 0 auto 45px;
+  }
+  
+  input[type="text"] {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+    text-align: left;
+    padding: 15px;
+    border: 2px solid #e7e7e7;
+    border-radius: 3px;
+    background: #fcfcfc;
+    margin: 10px auto 20px;
+    transition: opacity 0.4s;
+  }
+  
+  button[type="submit"] {
+    height: auto;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    background: darkslategray;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+
+  #update {
+    float: right;
+    margin-right: 10%;
+    font-size: 15px;
+  }
+
+  #delete {
+    float: right;
+    margin-right: 3%;
+    font-size: 15px;
+  }
+
+  #notes {
+    border: 4px solid rgba(105, 174, 178, 1);
+    height: 20%;
+    width: 40%;
+
+  }
+
+
+
+/******************update page*************************/
+
+#update-page {
+    background-color: rgba(105, 174, 178, 1);
+    font-family: "Roboto", helvetica, sans-serif;
+    padding: 85px 0 0;
+    margin: 0;
+    font-size: 18px;
+    height: 100%;
+  }
+  
+  fieldset {
+    padding: 0;
+    border: 0;
+    margin: 0;
+  }
+  
+  .update-form {
+    width: 50%;
+    padding: 40px;
+    border-radius: 3px;
+    background: white;
+    margin: 0 auto;
+  }
+  
+  .update-form legend {
+    width: 100%;
+    line-height: 38px;
+    font-size: 35px;
+    font-weight: 300;
+    color: #565656;
+    text-align: center;
+    letter-spacing: 0;
+    margin: 0 auto 45px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  button[type="submit"] {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+    text-align: left;
+    padding: 15px;
+    border: 2px solid #e7e7e7;
+    border-radius: 3px;
+    background: #fcfcfc;
+    margin: 10px auto 20px;
+    transition: opacity 0.4s;
+  }
+  
+  button[type="submit"] {
+    height: auto;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    background: darkslategray;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+
+
+
+
+
+/************media queries*************/
 
 @media screen and (min-width: 768px) {
   .text-block {

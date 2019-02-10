@@ -11,6 +11,7 @@
       <header>SimplyProject</header>
     </div>
 
+    <!--------------------------landing-page-------------------------->
     <div id="landing-page">
       <div id="landing-page-intro">
         <h1>Too many projects?</h1>
@@ -48,6 +49,10 @@
         </div>
       </section>
     </div>
+
+
+
+    <!-----------------------login-page------------------------>
 
     <div id="login-page" hidden>
       <form
@@ -88,6 +93,9 @@
       </form>
     </div>
 
+
+
+    <!---------------------------signup-page--------------------------->    
     <!--add required to each input-->
     <div id="signup-page" hidden>
       <form
@@ -139,25 +147,34 @@
       </form>
     </div>
 
+
+
+
+<!----------------------------projects page------------------------->
+
     <div id="projects-page" hidden>
-      <h4>Projects</h4>
-      <button id="project">Add a Project</button>
+    <section id="section1">
+        <h4>Projects</h4>
+        <button id="project">Add a Project</button>
+    </section>
       <p>Project title</p>
-      <ol>
+      <ul>
         <li>Start Date:</li>
         <li>Budget:</li>
         <li>Materials Needed:</li>
         <li>End Date:</li>
-      </ol>
+      </ul>
       <button id="details">View Project Details</button>
       <button id="update">Update</button>
       <button id="delete">Delete</button>
     </div>
 
-    <div id="details-page" hidden>
-      <form action="details-page">
+    <!-------------------details-page--------------------------------->
+
+    <div id="details-page" hidden >
+      <form id="details-form">
         <fieldset>
-          <legend>Details</legend>
+          <legend>Project Title</legend>
           <label for="start-date">Start Date:</label>
           <input
             type="text"
@@ -199,6 +216,10 @@
       </form>
     </div>
 
+
+
+    <!-----------------Update page---------------------->
+
     <div id="update-page" hidden>
       <form
         role="form"
@@ -207,6 +228,7 @@
         method="post"
         class="update-form"
       >
+
         <fieldset>
           <legend>Project</legend>
           <label for="name">Project Name</label>
