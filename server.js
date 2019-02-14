@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const passport = require("passport");
-const { router: usersRouter } = require("./users");
+const { router: projectsRouter } = require("./projects");
 const { router: projectsRouter } = require("./projects");
 const { router: authRouter, localStrategy, jwtStrategy } = require("./auth");
 
@@ -34,7 +34,7 @@ passport.use(localStrategy);
 passport.use(jwtStrategy);
 
 app.use("/api/projects/", projectsRouter);
-app.use("/api/users/", usersRouter);
+app.use("/api/projects/", projectsRouter);
 app.use("/api/auth/", authRouter);
 
 const jwtAuth = passport.authenticate("jwt", { session: false });
