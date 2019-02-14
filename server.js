@@ -4,8 +4,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const passport = require("passport");
-const { router: projectsRouter } = require("./projects");
-const { router: projectsRouter } = require("./projects");
+const { router: Router } = require("./projects");
+const { router: Router } = require("./projects");
 const { router: authRouter, localStrategy, jwtStrategy } = require("./auth");
 
 mongoose.Promise = global.Promise;
