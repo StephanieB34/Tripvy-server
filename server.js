@@ -4,8 +4,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const passport = require("passport");
-const { router: Router } = require("./projects");
-const { router: Router } = require("./projects");
+const { router: usersRouter } = require("./users");
+const { router: projectsRouter } = require("./projects");
 const { router: authRouter, localStrategy, jwtStrategy } = require("./auth");
 
 mongoose.Promise = global.Promise;
@@ -33,7 +33,7 @@ app.use(express.static("public"));
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 
-app.use("/api/projects/", projectsRouter);
+app.use("/api/users/", usersRouter);
 app.use("/api/projects/", projectsRouter);
 app.use("/api/auth/", authRouter);
 

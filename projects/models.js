@@ -32,7 +32,8 @@ ProjectSchema.methods.serialize = function() {
     budget: this.budget || "",
     materialsNeeded: this.materialsNeeded || "",
     startDate: this.startDate || "",
-    endDate: this.endDate || ""
+    endDate: this.endDate || "",
+    id: this._id
   };
 };
 
