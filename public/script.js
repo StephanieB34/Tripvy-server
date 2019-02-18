@@ -1,4 +1,7 @@
 var button = $("button");
+let PROJECT_URL = 'project';
+let user = localStorage.getItem('currentUser');
+
 
 /*********************landing page**************** */
 $("#log-in").on("click", function() {
@@ -112,3 +115,135 @@ $("#submit").on("click", function () {
     $("#details-page").hide();
     $("#update-page").hide()
 });
+
+function getProject() {
+	console.log('Getting project information')
+	let authToken = localStorage.getItem('authToken');
+	$.ajax({
+		method: 'GET',
+		url: `${PROJECT_URL}/user/${user}`,
+		headers: {
+			Authorization: `Bearer ${authToken}`
+		},
+		contentType: 'application/json',
+		success: function(userData) {
+			console.log(userData);
+			showProjectResults(userData);
+        }
+	});
+}
+
+function showProjectResults (projectArray) {
+/**********should I show the results in an array to list them?******************** */
+}
+
+
+function addProject(project) {
+	console.log('Adding project' + project);
+	let authToken = localStorage.getItem('authToken');
+	$.ajax({
+		method: 'POST',
+        url: PROJECT_URL,
+		headers: {
+			Authorization: `Bearer ${authToken}`
+		},
+		data: JSON.stringify(project),
+		success: function(data) {
+			getProject(data);
+		},
+		error: function(err) {
+			console.log(err);
+		},
+		dataType: 'json',
+		contentType: 'application/json'
+	});
+}
+
+function updateProjectForm(id, project) {
+    let authToken = localStorage.getItem('authToken');
+    $.ajax({
+        method: 'GET',
+        url:`${PROJECT_URL}/${id}`,
+        headers: {
+            Authorization: `Bearer ${authToken}`
+        },
+        contentType: 'application/json',
+        success: function (projectData) {
+            console.log(projectData)
+
+            /*********projectArray updated? */
+        }
+    })
+}
+
+function updateProject(id, project) {
+	console.log(`Updating project ${id}`);
+	let authToken = localStorage.getItem('authToken');
+	$.ajax({
+		url: PROJECT_URL + '/' + id,
+		headers: {
+			Authorization: `Bearer ${authToken}`
+		},
+		method: 'PUT',
+		dateType: 'json',
+		contentType: 'application/json',
+		data: JSON.stringify(project),
+		success: function(data) {
+			getProject(data);
+		},
+		error: function(err) {
+			console.log(err);
+		}
+	});
+}
+
+
+function deleteProject(id) {
+	console.log(`Deleting project ${id}`);
+	let authToken = localStorage.getItem('authToken');
+	$.ajax({
+		url: PROJECT_URL + '/' + id,
+		headers: {
+			Authorization: `Bearer ${authToken}`
+		},
+		method: 'DELETE',
+		success: function(data) {
+			getProject(data);
+		},
+		error: function(err) {
+			console.log(err);
+		}
+	});
+}
+
+function handleProjectAdd () {
+    $('#details-page').submit (function (e) {
+        e.preventDefault();
+        addProject({
+            user: user,
+
+        })
+    })
+}
+
+function handleProjectUpdate () {
+    $('#update-page').submit (function (e) {
+        e.preventDefault();
+        updateProject({
+
+        })
+    })
+}
+
+function handleProjectDelete () {
+
+}
+
+
+function loginForm () {
+
+}
+
+function registerForm () {
+    
+}
