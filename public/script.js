@@ -116,18 +116,20 @@ function showProjectResults(projectArray) {
 }
 
 function addProject(project) {
-  console.log("Adding project" + project);
+  console.log("Adding project", project);
   let authToken = localStorage.getItem("authToken");
   $.ajax({
     method: "POST",
     url: "/api/projects",
     headers: {
-      contentType: "application/json",
+      "Content-Type": "application/json",
+      Accept: "application/json",
       Authorization: `Bearer ${authToken}`
     },
     data: JSON.stringify(project),
     success: function(data) {
-      getProject(data);
+      console.log("PROJECT CREATED");
+      showProjectsPage();
     },
     error: function(err) {
       console.log(err);
@@ -135,6 +137,8 @@ function addProject(project) {
     dataType: "json"
   });
 }
+
+///////////
 
 function updateProjectForm(id, project) {
   let authToken = localStorage.getItem("authToken");
@@ -268,3 +272,17 @@ function loginForm() {
 // 		};
 // 		$.ajax(settings);
 //   }
+
+/////// ORGANIZE LATER
+
+$(".update-form").on("submit", function(e) {
+  e.preventDefault();
+  let project = {
+    projectName: $("#project-name").val()
+    // "budget":
+    // "materialsNeeded":
+    // "startDate":
+    // "endDate":
+  };
+  addProject(project);
+});
