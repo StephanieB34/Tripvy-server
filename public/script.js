@@ -121,7 +121,7 @@ function getProject() {
 	let authToken = localStorage.getItem('authToken');
 	$.ajax({
 		method: 'GET',
-		url: `${PROJECT_URL}/user/${user}`,
+		/*url: `${PROJECT_URL}/user/${user}`,*/
 		headers: {
 			Authorization: `Bearer ${authToken}`
 		},
@@ -143,8 +143,9 @@ function addProject(project) {
 	let authToken = localStorage.getItem('authToken');
 	$.ajax({
 		method: 'POST',
-        url: PROJECT_URL,
+        /*url: PROJECT_URL,*/
 		headers: {
+            contentType: 'application/json',
 			Authorization: `Bearer ${authToken}`
 		},
 		data: JSON.stringify(project),
@@ -155,7 +156,7 @@ function addProject(project) {
 			console.log(err);
 		},
 		dataType: 'json',
-		contentType: 'application/json'
+		
 	});
 }
 
@@ -163,8 +164,9 @@ function updateProjectForm(id, project) {
     let authToken = localStorage.getItem('authToken');
     $.ajax({
         method: 'GET',
-        url:`${PROJECT_URL}/${id}`,
+        /*url:`${PROJECT_URL}/${id}`,*/
         headers: {
+            contentType: 'application/json',
             Authorization: `Bearer ${authToken}`
         },
         contentType: 'application/json',
@@ -180,8 +182,9 @@ function updateProject(id, project) {
 	console.log(`Updating project ${id}`);
 	let authToken = localStorage.getItem('authToken');
 	$.ajax({
-		url: PROJECT_URL + '/' + id,
+		/*url: PROJECT_URL + '/' + id,*/
 		headers: {
+            contentType: 'application/json',
 			Authorization: `Bearer ${authToken}`
 		},
 		method: 'PUT',
@@ -202,8 +205,8 @@ function deleteProject(id) {
 	console.log(`Deleting project ${id}`);
 	let authToken = localStorage.getItem('authToken');
 	$.ajax({
-		url: PROJECT_URL + '/' + id,
 		headers: {
+            contentType: 'application/json',
 			Authorization: `Bearer ${authToken}`
 		},
 		method: 'DELETE',
@@ -241,9 +244,61 @@ function handleProjectDelete () {
 
 
 function loginForm () {
+    e.preventDefault();
+		let username = $("#GET-username").val();
+		let password = $("#GET-password").val();
+		let userInfo = {username, password};
+		let settings = {
+			url:"/auth/login",
+			type: 'POST',
+			contentType: 'application/json',
+			data: JSON.stringify(userInfo),
+			success: function(data) {
+				console.log('successfully logged in');
+				localStorage.setItem("authToken", data.authToken);
+				localStorage.setItem("currentUser", username);
+				user = username;
+				console.log(data);
+				getProjects(data);
+				
+			},
+			error: function(err) {
+				console.log(err);
+			}
+		};
+		$.ajax(settings);
+
 
 }
 
 function registerForm () {
-    
-}
+    e.preventDefault();
+		let username = $("#POST-username").val();
+		console.log('client-side username is:', username);
+		let password = $("#POST-password").val();
+		let retypePass = $("#retype-password").val();
+		let user = {username, password};
+		let settings = {
+			url:"/users/",
+			type: 'POST',
+			contentType: 'application/json',
+			data: JSON.stringify(user),
+			success: function(data) {
+				console.log('successfully registered');
+				$("#registerForm input[type='text']").val('');
+				
+			error: function(err) {
+				console.log(err);
+				if (password.length < 10) {
+					$("#errorTenChar").html("Password must be at least 10 characters")
+				}
+				if (password.length !== retypePass.length) {
+					$("#errorMatchPass").html("Passwords must match")
+				}
+				if (password !== retypePass) {
+					$("#errorMatchPass").html("Passwords must match")
+				}
+			}
+		};
+		$.ajax(settings);
+    }
