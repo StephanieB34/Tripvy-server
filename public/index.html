@@ -30,7 +30,7 @@
           <p>Track your project's progress</p>
         </div>
         <div class="text-block">
-        <div class="landing-img" id="landing-img-3"></div>
+          <div class="landing-img" id="landing-img-3"></div>
           <p>Jot down your tips and tricks</p>
         </div>
       </section>
@@ -50,8 +50,6 @@
       </section>
     </div>
 
-
-
     <!-----------------------login-page------------------------>
 
     <div id="login-page" hidden>
@@ -69,7 +67,7 @@
             type="text"
             placeholder="Type here"
             name="username"
-            id="uname"
+            id="login-username"
             required
           />
           <label for="password">Password</label>
@@ -93,9 +91,7 @@
       </form>
     </div>
 
-
-
-    <!---------------------------signup-page--------------------------->    
+    <!---------------------------signup-page--------------------------->
     <!--add required to each input-->
     <div id="signup-page" hidden>
       <form
@@ -126,7 +122,7 @@
             type="text"
             placeholder="Type here"
             name="username"
-            id="uname"
+            id="signup-username"
           />
           <label for="password">Password</label>
           <input
@@ -147,31 +143,19 @@
       </form>
     </div>
 
-
-
-
-<!----------------------------projects page------------------------->
+    <!----------------------------projects page------------------------->
 
     <div id="projects-page" hidden>
-    <section id="section1">
+      <section class="section1">
         <h4>Projects</h4>
         <button id="project">Add a Project</button>
-    </section>
-      <p>Project title</p>
-      <ul>
-        <li>Start Date:</li>
-        <li>Budget:</li>
-        <li>Materials Needed:</li>
-        <li>End Date:</li>
-      </ul>
-      <button id="details">View Project Details</button>
-      <button id="update">Update</button>
-      <button id="delete">Delete</button>
+      </section>
+      <div id="project-results"></div>
     </div>
 
     <!-------------------details-page--------------------------------->
 
-    <div id="details-page" hidden >
+    <div id="details-page" hidden>
       <form id="details-form">
         <fieldset>
           <legend>Project Title</legend>
@@ -216,8 +200,6 @@
       </form>
     </div>
 
-
-
     <!-----------------Update page---------------------->
 
     <div id="update-page" hidden>
@@ -228,7 +210,6 @@
         method="post"
         class="update-form"
       >
-
         <fieldset>
           <legend>Project</legend>
           <label for="name">Project Name</label>
