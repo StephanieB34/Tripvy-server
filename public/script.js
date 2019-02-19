@@ -143,7 +143,7 @@ function addProject(project) {
 	let authToken = localStorage.getItem('authToken');
 	$.ajax({
 		method: 'POST',
-        url: '/api/projects'
+        url: '/api/projects',
 		headers: {
             contentType: 'application/json',
 			Authorization: `Bearer ${authToken}`
@@ -164,7 +164,7 @@ function updateProjectForm(id, project) {
     let authToken = localStorage.getItem('authToken');
     $.ajax({
         method: 'GET',
-        url:'/api/projects'
+        url:'/api/projects',
         headers: {
             contentType: 'application/json',
             Authorization: `Bearer ${authToken}`
@@ -182,7 +182,7 @@ function updateProject(id, project) {
 	console.log(`Updating project ${id}`);
 	let authToken = localStorage.getItem('authToken');
 	$.ajax({
-		url: '/api/projects'
+		url: '/api/projects',
 		headers: {
             contentType: 'application/json',
 			Authorization: `Bearer ${authToken}`
