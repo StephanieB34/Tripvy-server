@@ -1,3 +1,5 @@
+import { format } from "url";
+
 var button = $("button");
 let PROJECT_URL = "project";
 let user = localStorage.getItem("currentUser");
@@ -198,28 +200,16 @@ function deleteProject(id) {
   });
 }
 
-function handleProjectAdd() {
-  $("#details-page").submit(function(e) {
-    e.preventDefault();
-    addProject({
-      user: user
-    });
+function handleProjectDelete() {
+  $(".update-button").click(function(e) {
+    // call deleteProject()
   });
 }
-
-function handleProjectUpdate() {
-  $("#update-page").submit(function(e) {
-    e.preventDefault();
-    updateProject({});
-  });
-}
-
-function handleProjectDelete() {}
 
 function loginForm() {
   e.preventDefault();
-  let username = $("#GET-username").val();
-  let password = $("#GET-password").val();
+  let username = $("#login-username").val();
+  let password = $("#login-password").val();
   let userInfo = { username, password };
   let settings = {
     url: "/auth/login",
@@ -243,7 +233,7 @@ function loginForm() {
 
 // function registerForm () {
 //   e.preventDefault();
-//   let username = $("#POST-username").val();
+//   let username = $("#singnup-username").val();
 //   console.log('client-side username is:', username);
 //   let password = $("#POST-password").val();
 //   let retypePass = $("#retype-password").val();
@@ -275,6 +265,7 @@ function loginForm() {
 
 /////// ORGANIZE LATER
 
+// handle project add
 $(".update-form").on("submit", function(e) {
   e.preventDefault();
   let project = {
@@ -286,3 +277,11 @@ $(".update-form").on("submit", function(e) {
   };
   addProject(project);
 });
+
+function handleProjectUpdate() {
+  $(".update-button").click(function(e) {
+    // get information from the format.
+    // let project = {...}
+    // updateProject(project);
+  });
+}
