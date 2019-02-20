@@ -16,6 +16,7 @@ function hideAllPages() {
 function showProjectsPage() {
   hideAllPages();
   getProjects();
+  showProjectResults();
   $("#projects-page").show();
 }
 
@@ -43,26 +44,37 @@ $(".login-form").on("submit", function(e) {
 });
 
 /*******************projects page*************** */
-$("#details").on("click", function() {
+$(".details").on("click", function() {
   hideAllPages();
+  updateProjects();
   $("#details-page").show();
 });
 
-$("#update").on("click", function() {
+$(".update").on("click", function() {
   hideAllPages();
   $("#update-page").show();
+  addProjects();
 });
 
 $("#project").on("click", function() {
   hideAllPages();
   $("#update-page").show();
+  addProjects();
+   
 });
+
+$(".delete").on("click", function() {
+  deleteProjects();
+  hideAllPages();
+  showProjectsPage();
+})
 
 /**********************details page****************/
 
 $("#update").on("click", function() {
   hideAllPages();
   $("#update-page").show();
+  addProjects();
 });
 
 $("#back").on("click", showProjectsPage);
@@ -93,7 +105,6 @@ function getProjects() {
 }
 
 function showProjectResults(projectArray) {
-  /**********should I show the results in an array to list them?******************** */
   console.log(projectArray);
 
   $("#project-results").empty();
@@ -104,10 +115,10 @@ function showProjectResults(projectArray) {
     <section class="project-section">
       <p>${project.projectName}</p>
       <ul>
-        <li>Start Date:</li>
+        <li>Start Date:${project.startDate}</li>
         <li>Budget:${project.budget}</li>
-        <li>Materials Needed:</li>
-        <li>End Date:</li>
+        <li>Materials Needed:${project.materialsNeeded}</li>
+        <li>End Date:${project.endDate}</li>
       </ul>
       <button class="details">View Project Details</button>
       <button class="update">Update</button>
@@ -117,7 +128,7 @@ function showProjectResults(projectArray) {
   }
 }
 
-function addProject(project) {
+function addProjects(project) {
   console.log("Adding project", project);
   let authToken = localStorage.getItem("authToken");
   $.ajax({
@@ -140,8 +151,7 @@ function addProject(project) {
   });
 }
 
-///////////
-
+/****************************** do I need this get function by id ***************************/
 function updateProjectForm(id, project) {
   let authToken = localStorage.getItem("authToken");
   $.ajax({
@@ -155,12 +165,11 @@ function updateProjectForm(id, project) {
     success: function(projectData) {
       console.log(projectData);
 
-      /*********projectArray updated? */
     }
   });
 }
 
-function updateProject(id, project) {
+function updateProjects(id, project) {
   console.log(`Updating project ${id}`);
   let authToken = localStorage.getItem("authToken");
   $.ajax({
@@ -182,7 +191,7 @@ function updateProject(id, project) {
   });
 }
 
-function deleteProject(id) {
+function deleteProjects (id) {
   console.log(`Deleting project ${id}`);
   let authToken = localStorage.getItem("authToken");
   $.ajax({
@@ -200,9 +209,48 @@ function deleteProject(id) {
   });
 }
 
+
+function handleProjectAdd () {
+$(".update-form").on("submit", function(e) {
+  e.preventDefault();
+  let project = {
+    projectName: $("#project-name").val(),
+    budget: $("#budget").val(),
+    materialsNeeded: $("#materials-needed").val(),
+    startDate: $("#start-date").val(),
+    endDate: $("#end-date").val()
+  };
+  addProject(project);
+});
+}
+
+
+function handleProjectUpdate() {
+  $(".update").click(function(e) {
+    e.preventDefault();
+    let project = {
+      projectName: $("#project-name").val(),
+      budget: $("#budget").val(),
+      materialsNeeded: $("#materials-needed").val(),
+      startDate: $("#start-date").val(),
+      endDate: $("#end-date").val()
+    };
+    updateProject(project);
+  });
+}
+
+
 function handleProjectDelete() {
-  $(".update-button").click(function(e) {
-    // call deleteProject()
+  $(".delete").click(function(e) {
+    let project = {
+      projectName: $("#project-name").val(),
+      budget: $("#budget").val(),
+      materialsNeeded: $("#materials-needed").val(),
+      startDate: $("#start-date").val(),
+      endDate: $("#end-date").val(),
+      /*id: */
+    };
+    deleteProject(project);
   });
 }
 
@@ -231,57 +279,35 @@ function loginForm() {
   $.ajax(settings);
 }
 
-// function registerForm () {
-//   e.preventDefault();
-//   let username = $("#singnup-username").val();
-//   console.log('client-side username is:', username);
-//   let password = $("#POST-password").val();
-//   let retypePass = $("#retype-password").val();
-//   let user = {username, password};
-//   let settings = {
-//     url:"/users/",
-//     type: 'POST',
-//     contentType: 'application/json',
-//     data: JSON.stringify(user),
-//     success: function(data) {
-//       console.log('successfully registered');
-//       $("#registerForm input[type='text']").val('');
-
-// 			error: function(err) {
-// 				console.log(err);
-// 				if (password.length < 10) {
-// 					$("#errorTenChar").html("Password must be at least 10 characters")
-// 				}
-// 				if (password.length !== retypePass.length) {
-// 					$("#errorMatchPass").html("Passwords must match")
-// 				}
-// 				if (password !== retypePass) {
-// 					$("#errorMatchPass").html("Passwords must match")
-// 				}
-// 			}
-// 		};
-// 		$.ajax(settings);
-//   }
-
-/////// ORGANIZE LATER
-
-// handle project add
-$(".update-form").on("submit", function(e) {
+$("#registerForm").submit(function(e) {
   e.preventDefault();
-  let project = {
-    projectName: $("#project-name").val()
-    // "budget":
-    // "materialsNeeded":
-    // "startDate":
-    // "endDate":
+  let username = $("#signup-username").val();
+  console.log('client-side username is:', username);
+  let password = $("#signup-password").val();
+  let retypePass = $("#retype-password").val();
+  let user = {username, password};
+  let settings = {
+    url:"/users/",
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(user),
+    success: function(data) {
+      console.log('successfully registered');
+      $("#registerForm input[type='text']").val('');
+    },
+    error: function(err) {
+      console.log(err);
+      if (password.length < 10) {
+        $("#errorTenChar").html("Password must be at least 10 characters")
+      }
+      if (password.length !== retypePass.length) {
+        $("#errorMatchPass").html("Passwords must match")
+      }
+      if (password !== retypePass) {
+        $("#errorMatchPass").html("Passwords must match")
+      }
+    }
   };
-  addProject(project);
-});
+  $.ajax(settings);
+})
 
-function handleProjectUpdate() {
-  $(".update-button").click(function(e) {
-    // get information from the format.
-    // let project = {...}
-    // updateProject(project);
-  });
-}
