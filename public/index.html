@@ -157,58 +157,58 @@
     <!-------------------details-page--------------------------------->
 
     <div id="details-page" hidden>
-      <form id="details-form">
+      <div id="details">
+        // THIS SHOULDNT BE A FORM
         <fieldset>
           <legend>Project Title</legend>
           <label for="start-date">Start Date:</label>
-          <input
+          <inputs // CHange this to spans or divs 
             type="text"
             placeholder="Type here"
             name="sdate"
-            id="start-date"
+            id="details-start-date"
           />
           <label for="budget">Budget</label>
-          <input
+          <inputs
             type="text"
             placeholder="Budget here"
             name="budget"
-            id="budget"
+            id="details-budget"
           />
           <label for="materials">Materials Needed</label>
-          <input
+          <inputs
             type="text"
             placeholder="Materials here"
             name="materials"
-            id="materials"
+            id="details-materials"
           />
           <label for="end-date">End Date:</label>
-          <input
+          <inputs
             type="text"
             placeholder="Type here"
             name="edate"
-            id="end-date"
+            id="details-end-date"
           />
-          <button class="update">Update</button>
+          <button class="edit">Update</button>
           <button class="delete">Delete</button>
         </fieldset>
         <label for="notes">Notes</label>
+
+        // FORM SHOULD START HERE
         <textarea
           id="notes"
           name="notes"
           placeholder="Write something"
         ></textarea>
+        // FORM SHOULD END HERE
         <button class="back">Back to Projects</button>
-      </form>
+      </div>
     </div>
 
-    <!-----------------Update page---------------------->
+    <!-----------------Edit page---------------------->
 
-    <div id="update-page" hidden>
-      <form
-        role="form"
-        accept-charset="UTF-8"
-        class="update-form"
-      >
+    <div id="edit-page" hidden>
+      <form role="form" accept-charset="UTF-8" class="edit-form">
         <fieldset>
           <legend>Project</legend>
           <label for="name">Project Name</label>
@@ -220,31 +220,31 @@
           />
           <label for="start-date">Start Date</label>
           <input
-            type="text"
+            type="date"
             placeholder="Type here"
             name="sdate"
-            id="start-date2"
+            id="start-date"
           />
           <label for="budget">Budget</label>
           <input
             type="text"
             placeholder="Type here"
             name="budget"
-            id="budget2"
+            id="budget"
           />
           <label for="materials">Materials Needed</label>
           <input
             type="text"
             placeholder="Type here"
             name="materials"
-            id="materials2"
+            id="materials"
           />
           <label for="end-date">End Date</label>
           <input
-            type="text"
+            type="date"
             placeholder="Type here"
             name="edate"
-            id="end-date2"
+            id="end-date"
           />
           <button type="submit" class="create-project">Create</button>
         </fieldset>

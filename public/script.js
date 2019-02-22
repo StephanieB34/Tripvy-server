@@ -1,4 +1,3 @@
-
 var button = $("button");
 let PROJECT_URL = "project";
 let user = localStorage.getItem("currentUser");
@@ -9,7 +8,7 @@ function hideAllPages() {
   $("#projects-page").hide();
   $("#login-page").hide();
   $("#details-page").hide();
-  $("#update-page").hide();
+  $("#edit-page").hide();
 }
 
 function showProjectsPage() {
@@ -30,62 +29,57 @@ $("#register").on("click", function() {
 });
 
 /***********************login page******************** */
-$("#enter").on("click", function () {
-  //showProjectsPage;
-  //showProjectResults;
-});
-
-/************************signup page********************** */
-$("#sign-up-button").on("click", showProjectsPage);
-
-/*************delete later***************/
 $(".login-form").on("submit", function(e) {
   e.preventDefault();
   showProjectsPage();
 });
 
+/************************signup page********************** */
+$("#sign-up-button").on("click", showProjectsPage);
+
 /*******************projects page*************** */
-$(".details").on("click", function() {
+$("#projects-page").on("click", ".details", function() {
   hideAllPages();
-  updateProjects();
   $("#details-page").show();
 });
 
 $(".update").on("click", function() {
   hideAllPages();
-  $("#update-page").show();
-  addProjects();
+  $("#edit-page").show();
 });
 
 $("#project").on("click", function() {
   hideAllPages();
-  $("#update-page").show();
+  $("#edit-page").show();
 });
 
 $(".delete").on("click", function() {
   deleteProjects();
   hideAllPages();
   showProjectsPage();
-})
+});
 
 /**********************details page****************/
 
 $("#update").on("click", function() {
   hideAllPages();
-  $("#update-page").show();
-  addProjects();
+  $("#edit-page").show();
 });
 
 $(".back").on("click", showProjectsPage);
 
-/**************update page************************/
+/**************edit page************************/
 
-$(".update-form").on("submit", function (e) {
+$(".edit-form").on("submit", function(e) {
   e.preventDefault();
-  console.log("hello");
-  //addProjects();
-  //showProjectsPage;
-  //showProjectResults;
+  let project = {
+    projectName: $("#project-name").val(),
+    budget: $("#budget").val(),
+    materialsNeeded: $("#materials").val(),
+    startDate: $("#start-date").val(),
+    endDate: $("#end-date").val()
+  };
+  addProject(project);
 });
 
 /********************** REST FUNCTIONS ****************/
@@ -133,7 +127,7 @@ function showProjectResults(projectArray) {
   }
 }
 
-function addProjects(project) {
+function addProject(project) {
   console.log("Adding project", project);
   let authToken = localStorage.getItem("authToken");
   $.ajax({
@@ -157,46 +151,45 @@ function addProjects(project) {
 }
 
 /****************************** do I need this get function by id ***************************/
-function updateProjectForm(id, project) {
-  let authToken = localStorage.getItem("authToken");
-  $.ajax({
-    method: "GET",
-    url: "/api/projects",
-    headers: {
-      contentType: "application/json",
-      Authorization: `Bearer ${authToken}`
-    },
-    contentType: "application/json",
-    success: function(projectData) {
-      console.log(projectData);
+// function updateProjectForm(id, project) {
+//   let authToken = localStorage.getItem("authToken");
+//   $.ajax({
+//     method: "GET",
+//     url: "/api/projects",
+//     headers: {
+//       contentType: "application/json",
+//       Authorization: `Bearer ${authToken}`
+//     },
+//     contentType: "application/json",
+//     success: function(projectData) {
+//       console.log(projectData);
+//     }
+//   });
+// }
 
-    }
-  });
-}
+// function updateProject(id, project) {
+//   console.log(`Updating project ${id}`);
+//   let authToken = localStorage.getItem("authToken");
+//   $.ajax({
+//     url: "/api/projects",
+//     headers: {
+//       contentType: "application/json",
+//       Authorization: `Bearer ${authToken}`
+//     },
+//     method: "PUT",
+//     dateType: "json",
+//     contentType: "application/json",
+//     data: JSON.stringify(project),
+//     success: function(data) {
+//       getProject(data);
+//     },
+//     error: function(err) {
+//       console.log(err);
+//     }
+//   });
+// }
 
-function updateProjects(id, project) {
-  console.log(`Updating project ${id}`);
-  let authToken = localStorage.getItem("authToken");
-  $.ajax({
-    url: "/api/projects",
-    headers: {
-      contentType: "application/json",
-      Authorization: `Bearer ${authToken}`
-    },
-    method: "PUT",
-    dateType: "json",
-    contentType: "application/json",
-    data: JSON.stringify(project),
-    success: function(data) {
-      getProject(data);
-    },
-    error: function(err) {
-      console.log(err);
-    }
-  });
-}
-
-function deleteProjects (id) {
+function deleteProjects(id) {
   console.log(`Deleting project ${id}`);
   let authToken = localStorage.getItem("authToken");
   $.ajax({
@@ -214,36 +207,19 @@ function deleteProjects (id) {
   });
 }
 
-
-function handleProjectAdd () {
-$(".update-form").on("submit", function(e) {
-  e.preventDefault();
-  let project = {
-    projectName: $("#project-name").val(),
-    budget: $("#budget").val(),
-    materialsNeeded: $("#materials-needed").val(),
-    startDate: $("#start-date").val(),
-    endDate: $("#end-date").val()
-  };
-  addProject(project);
-});
-}
-
-
-function handleProjectUpdate() {
-  $(".update").click(function(e) {
-    e.preventDefault();
-    let project = {
-      projectName: $("#project-name").val(),
-      budget: $("#budget").val(),
-      materialsNeeded: $("#materials-needed").val(),
-      startDate: $("#start-date").val(),
-      endDate: $("#end-date").val()
-    };
-    updateProject(project);
-  });
-}
-
+// function handleProjectUpdate() {
+//   $(".update").click(function(e) {
+//     e.preventDefault();
+//     let project = {
+//       projectName: $("#project-name").val(),
+//       budget: $("#budget").val(),
+//       materialsNeeded: $("#materials-needed").val(),
+//       startDate: $("#start-date").val(),
+//       endDate: $("#end-date").val()
+//     };
+//     updateProject(project);
+//   });
+// }
 
 function handleProjectDelete() {
   $(".delete").click(function(e) {
@@ -252,7 +228,7 @@ function handleProjectDelete() {
       budget: $("#budget").val(),
       materialsNeeded: $("#materials-needed").val(),
       startDate: $("#start-date").val(),
-      endDate: $("#end-date").val(),
+      endDate: $("#end-date").val()
       /*id: */
     };
     deleteProject(project);
@@ -287,32 +263,31 @@ function loginForm() {
 $("#registerForm").submit(function(e) {
   e.preventDefault();
   let username = $("#signup-username").val();
-  console.log('client-side username is:', username);
+  console.log("client-side username is:", username);
   let password = $("#signup-password").val();
   let retypePass = $("#retype-password").val();
-  let user = {username, password};
+  let user = { username, password };
   let settings = {
-    url:"/users/",
-    type: 'POST',
-    contentType: 'application/json',
+    url: "/users/",
+    type: "POST",
+    contentType: "application/json",
     data: JSON.stringify(user),
     success: function(data) {
-      console.log('successfully registered');
-      $("#registerForm input[type='text']").val('');
+      console.log("successfully registered");
+      $("#registerForm input[type='text']").val("");
     },
     error: function(err) {
       console.log(err);
       if (password.length < 10) {
-        $("#errorTenChar").html("Password must be at least 10 characters")
+        $("#errorTenChar").html("Password must be at least 10 characters");
       }
       if (password.length !== retypePass.length) {
-        $("#errorMatchPass").html("Passwords must match")
+        $("#errorMatchPass").html("Passwords must match");
       }
       if (password !== retypePass) {
-        $("#errorMatchPass").html("Passwords must match")
+        $("#errorMatchPass").html("Passwords must match");
       }
     }
   };
   $.ajax(settings);
-})
-
+});
