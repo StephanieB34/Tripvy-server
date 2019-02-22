@@ -31,8 +31,8 @@ $("#register").on("click", function() {
 
 /***********************login page******************** */
 $("#enter").on("click", function () {
-  showProjectsPage;
-  showProjectResults;
+  //showProjectsPage;
+  //showProjectResults;
 });
 
 /************************signup page********************** */
@@ -60,8 +60,6 @@ $(".update").on("click", function() {
 $("#project").on("click", function() {
   hideAllPages();
   $("#update-page").show();
-  addProjects();
-   
 });
 
 $(".delete").on("click", function() {
@@ -82,10 +80,12 @@ $(".back").on("click", showProjectsPage);
 
 /**************update page************************/
 
-$(".create-project").on("click", function () {
-  addProjects();
-  showProjectsPage;
-  showProjectResults;
+$(".update-form").on("submit", function (e) {
+  e.preventDefault();
+  console.log("hello");
+  //addProjects();
+  //showProjectsPage;
+  //showProjectResults;
 });
 
 /********************** REST FUNCTIONS ****************/

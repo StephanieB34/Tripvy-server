@@ -24,6 +24,7 @@ header {
   color: black;
   margin: 0 10px;
   font-size: 18px; 
+  font-family: "Roboto", helvetica, sans-serif;
 }
 
 #log-out {
