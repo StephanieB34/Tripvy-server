@@ -45,8 +45,6 @@
             all in one place.
           </p>
           <h3>Try it now!</h3>
-          <button id="log-in">Log In</button>
-          <button id="register">Register</button>
         </div>
       </section>
     </div>
@@ -97,9 +95,7 @@
     <div id="signup-page" hidden>
       <form
         role="form"
-        action="login"
         accept-charset="UTF-8"
-        method="post"
         class="signup-form"
       >
         <fieldset>
@@ -111,6 +107,7 @@
             name="first-name"
             id="first-name"
           />
+          
           <label for="last-name">Last Name</label>
           <input
             type="text"
@@ -118,6 +115,7 @@
             name="last-name"
             id="last-name"
           />
+          
           <label for="username">Username</label>
           <input
             type="text"
@@ -125,6 +123,7 @@
             name="username"
             id="signup-username"
           />
+      
           <label for="password">Password</label>
           <input
             type="password"
@@ -132,6 +131,7 @@
             name="password"
             id="password"
           />
+          
           <label for="retype-password">Retype Password</label>
           <input
             type="password"
@@ -139,7 +139,7 @@
             name="retype-password"
             id="retype-signup-password"
           />
-          <button type="submit" id="sign-up-button">Sign-up</button>
+          <button type="submit">Sign-up</button>
         </fieldset>
       </form>
     </div>
@@ -147,60 +147,36 @@
     <!----------------------------projects page------------------------->
 
     <div id="projects-page" hidden>
-      <section class="section1">
+      <div class="project-section">
         <h4>Projects</h4>
         <button id="project">Add a Project</button>
-      </section>
-      <div id="project-results"></div>
+        <br>
+        <div id="project-results"></div>
+      </div>
     </div>
 
     <!-------------------details-page--------------------------------->
 
     <div id="details-page" hidden>
       <div id="details">
-        // THIS SHOULDNT BE A FORM
-        <fieldset>
-          <legend>Project Title</legend>
-          <label for="start-date">Start Date:</label>
-          <inputs // CHange this to spans or divs 
-            type="text"
-            placeholder="Type here"
-            name="sdate"
-            id="details-start-date"
-          />
-          <label for="budget">Budget</label>
-          <inputs
-            type="text"
-            placeholder="Budget here"
-            name="budget"
-            id="details-budget"
-          />
-          <label for="materials">Materials Needed</label>
-          <inputs
-            type="text"
-            placeholder="Materials here"
-            name="materials"
-            id="details-materials"
-          />
-          <label for="end-date">End Date:</label>
-          <inputs
-            type="text"
-            placeholder="Type here"
-            name="edate"
-            id="details-end-date"
-          />
+          <h5>Project Title</h5>
+          <div id="details-start-date">Start Date:12/20/2020</div>
+          <br>
+          <div id="details-budget">Budget:467</div>
+          <br>
+          <div id="details-materials">Materials Needed: paper, pens</div>
+          <br>
+          <div id="details-end-date">End Date:12/22/2020</div>
+          <br>
           <button class="edit">Update</button>
-          <button class="delete">Delete</button>
-        </fieldset>
-        <label for="notes">Notes</label>
-
-        // FORM SHOULD START HERE
-        <textarea
-          id="notes"
-          name="notes"
-          placeholder="Write something"
-        ></textarea>
-        // FORM SHOULD END HERE
+          <button class="details-delete-button">Delete</button>
+          <br>
+          <h6>NOTES</h6>
+        <form class="notes-form">
+          <textarea rows="2" cols="15"
+            placeholder="Write something">
+          </textarea>
+        </form>
         <button class="back">Back to Projects</button>
       </div>
     </div>
@@ -227,7 +203,7 @@
           />
           <label for="budget">Budget</label>
           <input
-            type="text"
+            type="number"
             placeholder="Type here"
             name="budget"
             id="budget"
@@ -251,7 +227,7 @@
       </form>
     </div>
     <div id="footer">
-      <p>By: Stephanie Beres</p>
+      <h7>By: Stephanie Beres</h7>
     </div>
   </body>
   <script

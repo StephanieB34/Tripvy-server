@@ -35,7 +35,10 @@ $(".login-form").on("submit", function(e) {
 });
 
 /************************signup page********************** */
-$("#sign-up-button").on("click", showProjectsPage);
+$(".signup-form").on("submit", function(e) {
+  e.preventDefault();
+  showProjectsPage();
+});
 
 /*******************projects page*************** */
 $("#projects-page").on("click", ".details", function() {
