@@ -1,4 +1,3 @@
-import { format } from "url";
 
 var button = $("button");
 let PROJECT_URL = "project";
@@ -16,7 +15,6 @@ function hideAllPages() {
 function showProjectsPage() {
   hideAllPages();
   getProjects();
-  showProjectResults();
   $("#projects-page").show();
 }
 
@@ -32,10 +30,13 @@ $("#register").on("click", function() {
 });
 
 /***********************login page******************** */
-$("#enter").on("click", showProjectsPage);
+$("#enter").on("click", function () {
+  showProjectsPage;
+  showProjectResults;
+});
 
 /************************signup page********************** */
-$("#sign-up").on("click", showProjectsPage);
+$("#sign-up-button").on("click", showProjectsPage);
 
 /*************delete later***************/
 $(".login-form").on("submit", function(e) {
@@ -77,11 +78,15 @@ $("#update").on("click", function() {
   addProjects();
 });
 
-$("#back").on("click", showProjectsPage);
+$(".back").on("click", showProjectsPage);
 
 /**************update page************************/
 
-$("#submit").on("click", showProjectsPage);
+$(".create-project").on("click", function () {
+  addProjects();
+  showProjectsPage;
+  showProjectResults;
+});
 
 /********************** REST FUNCTIONS ****************/
 

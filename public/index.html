@@ -9,6 +9,7 @@
   <body>
     <div id="nav">
       <header>SimplyProject</header>
+      <button id="log-out">Log Out</button>
     </div>
 
     <!--------------------------landing-page-------------------------->
@@ -136,9 +137,9 @@
             type="password"
             placeholder="Type again here"
             name="retype-password"
-            id="retype-password"
+            id="retype-signup-password"
           />
-          <button type="submit">Sign-up</button>
+          <button type="submit" id="sign-up-button">Sign-up</button>
         </fieldset>
       </form>
     </div>
@@ -187,8 +188,8 @@
             name="edate"
             id="end-date"
           />
-          <button id="update">Update</button>
-          <button id="delete">Delete</button>
+          <button class="update">Update</button>
+          <button class="delete">Delete</button>
         </fieldset>
         <label for="notes">Notes</label>
         <textarea
@@ -196,7 +197,7 @@
           name="notes"
           placeholder="Write something"
         ></textarea>
-        <button id="back">Back to Projects</button>
+        <button class="back">Back to Projects</button>
       </form>
     </div>
 
@@ -247,7 +248,7 @@
             name="edate"
             id="end-date2"
           />
-          <button type="submit">Create</button>
+          <button type="submit" class="create-project">Create</button>
         </fieldset>
       </form>
     </div>

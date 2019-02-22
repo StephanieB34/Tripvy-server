@@ -23,8 +23,13 @@ header {
   float: left;
   color: black;
   margin: 0 10px;
+  font-size: 18px; 
 }
 
+#log-out {
+  float: right;
+
+}
 #footer {
   position: fixed;
   left: 0;
