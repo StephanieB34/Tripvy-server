@@ -511,5 +511,10 @@ h6 {
   #signup-page {
     padding: 10px 0 0 ;
   }
+
+  /*textarea {
+    grid-row: 15;
+    columns: 100;
+  }
 }
 
