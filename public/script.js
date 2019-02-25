@@ -34,12 +34,22 @@ $(".login-form").on("submit", function(e) {
   showProjectsPage();
 });
 
+$(".back-to-landing").on ("click", function (e) {
+  e.preventDefault();
+  hideAllPages();
+  $("#landing-page").show();
+})
 /************************signup page********************** */
 $(".signup-form").on("submit", function(e) {
   e.preventDefault();
   showProjectsPage();
 });
 
+$(".back-to-landing-page").on ("click", function (e) {
+  e.preventDefault();
+  hideAllPages();
+  $("#landing-page").show();
+})
 /*******************projects page*************** */
 $("#projects-page").on("click", ".details", function() {
   hideAllPages();
