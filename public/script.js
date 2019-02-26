@@ -1,6 +1,9 @@
 var button = $("button");
 let PROJECT_URL = "project";
 let user = localStorage.getItem("currentUser");
+let state = {
+  projects: []
+};
 
 function hideAllPages() {
   $("#landing-page").hide();
@@ -17,7 +20,6 @@ function showProjectsPage() {
   $("#projects-page").show();
 }
 
-
 /*********************landing page**************** */
 $("#log-in").on("click", function() {
   hideAllPages();
@@ -32,28 +34,48 @@ $("#register").on("click", function() {
 /***********************login page******************** */
 $(".login-form").on("submit", function(e) {
   e.preventDefault();
-  showProjectsPage();
+  let userInfo = {
+    username: $("#login-username").val(),
+    password: $("#login-password").val()
+  };
+  login(userInfo);
 });
 
-$(".back-to-landing").on ("click", function (e) {
+$(".back-to-landing").on("click", function(e) {
   e.preventDefault();
   hideAllPages();
   $("#landing-page").show();
-})
+});
 /************************signup page********************** */
 $(".signup-form").on("submit", function(e) {
   e.preventDefault();
-  showProjectsPage();
+  let user = {
+    firstName: $("#first-name").val(),
+    lastName: $("#last-name").val(),
+    username: $("#signup-username").val(),
+    password: $("#password").val(),
+    retype: $("#retype-signup-password").val()
+  };
+  register(user);
 });
 
-$(".back-to-landing-page").on ("click", function (e) {
+$(".back-to-landing-page").on("click", function(e) {
   e.preventDefault();
   hideAllPages();
   $("#landing-page").show();
-})
+});
 /*******************projects page*************** */
 $("#projects-page").on("click", ".details", function() {
   hideAllPages();
+
+  let index = $(this)
+    .parent(".project-section")
+    .attr("data-index");
+  let project = state.projects[index];
+
+  $("#details-start-date").text("Start Date " + project.startDate);
+  $("#details-project-title").text(project.projectName);
+  // TODO: ALL other fields
   $("#details-page").show();
 });
 
@@ -67,9 +89,16 @@ $("#project").on("click", function() {
   $("#edit-page").show();
 });
 
-$(".delete").on("click", function() {
-  deleteProjects();
+$("#log-out").on("click", function() {
   hideAllPages();
+  $("#landing-page").show();
+});
+
+$("#projects-page").on("click", ".delete", function() {
+  let id = $(this)
+    .parent(".project-section")
+    .attr("data-id");
+  deleteProject(id);
   showProjectsPage();
 });
 
@@ -96,11 +125,11 @@ $(".edit-form").on("submit", function(e) {
   addProject(project);
 });
 
-$(".back-to-projects").on("click", function (e) {
+$(".back-to-projects").on("click", function(e) {
   e.preventDefault();
   hideAllPages();
   showProjectsPage();
-})
+});
 /********************** REST FUNCTIONS ****************/
 
 function getProjects() {
@@ -113,8 +142,9 @@ function getProjects() {
       Authorization: `Bearer ${authToken}`
     },
     contentType: "application/json",
-    success: function(userData) {
-      showProjectResults(userData);
+    success: function(projects) {
+      state.projects = projects;
+      showProjectResults(projects);
     },
     error: function(error) {
       console.log("error");
@@ -130,7 +160,7 @@ function showProjectResults(projectArray) {
   for (var i = 0; i < projectArray.length; i++) {
     let project = projectArray[i];
     $("#project-results").append(`
-    <section class="project-section">
+    <section class="project-section" data-index="${i}" data-id="${project.id}">
       <p>${project.projectName}</p>
       <ul>
         <li>Start Date:${project.startDate}</li>
@@ -169,76 +199,24 @@ function addProject(project) {
   });
 }
 
-/****************************** do I need this get function by id ***************************/
-// function updateProjectForm(id, project) {
-//   let authToken = localStorage.getItem("authToken");
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/projects",
-//     headers: {
-//       contentType: "application/json",
-//       Authorization: `Bearer ${authToken}`
-//     },
-//     contentType: "application/json",
-//     success: function(projectData) {
-//       console.log(projectData);
-//     }
-//   });
-// }
-
-// function updateProject(id, project) {
-//   console.log(`Updating project ${id}`);
-//   let authToken = localStorage.getItem("authToken");
-//   $.ajax({
-//     url: "/api/projects",
-//     headers: {
-//       contentType: "application/json",
-//       Authorization: `Bearer ${authToken}`
-//     },
-//     method: "PUT",
-//     dateType: "json",
-//     contentType: "application/json",
-//     data: JSON.stringify(project),
-//     success: function(data) {
-//       getProject(data);
-//     },
-//     error: function(err) {
-//       console.log(err);
-//     }
-//   });
-// }
-
-function deleteProjects(id) {
+function deleteProject(id) {
   console.log(`Deleting project ${id}`);
   let authToken = localStorage.getItem("authToken");
   $.ajax({
+    url: `/api/projects/${id}`,
     headers: {
       contentType: "application/json",
       Authorization: `Bearer ${authToken}`
     },
     method: "DELETE",
     success: function(data) {
-      getProject(data);
+      getProjects();
     },
     error: function(err) {
       console.log(err);
     }
   });
 }
-
-// function handleProjectUpdate() {
-//   $(".update").click(function(e) {
-//     e.preventDefault();
-//     let project = {
-//       projectName: $("#project-name").val(),
-//       budget: $("#budget").val(),
-//       materialsNeeded: $("#materials-needed").val(),
-//       startDate: $("#start-date").val(),
-//       endDate: $("#end-date").val()
-//     };
-//     updateProject(project);
-//   });
-// }
 
 function handleProjectDelete() {
   $(".delete").click(function(e) {
@@ -254,46 +232,15 @@ function handleProjectDelete() {
   });
 }
 
-function loginForm() {
-  e.preventDefault();
-  let username = $("#login-username").val();
-  let password = $("#login-password").val();
-  let userInfo = { username, password };
+function register(user) {
   let settings = {
-    url: "/auth/login",
-    type: "POST",
-    contentType: "application/json",
-    data: JSON.stringify(userInfo),
-    success: function(data) {
-      console.log("successfully logged in");
-      localStorage.setItem("authToken", data.authToken);
-      localStorage.setItem("currentUser", username);
-      user = username;
-      console.log(data);
-      getProjects(data);
-    },
-    error: function(err) {
-      console.log(err);
-    }
-  };
-  $.ajax(settings);
-}
-
-$("#registerForm").submit(function(e) {
-  e.preventDefault();
-  let username = $("#signup-username").val();
-  console.log("client-side username is:", username);
-  let password = $("#signup-password").val();
-  let retypePass = $("#retype-password").val();
-  let user = { username, password };
-  let settings = {
-    url: "/users/",
+    url: "api/users/",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify(user),
     success: function(data) {
-      console.log("successfully registered");
-      $("#registerForm input[type='text']").val("");
+      console.log("successfully registered", data);
+      showProjectsPage();
     },
     error: function(err) {
       console.log(err);
@@ -309,4 +256,26 @@ $("#registerForm").submit(function(e) {
     }
   };
   $.ajax(settings);
-});
+}
+
+function login(userInfo) {
+  console.log(userInfo);
+  let settings = {
+    url: "/api/auth/login",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(userInfo),
+    success: function(data) {
+      console.log("successfully logged in");
+      // localStorage.setItem("authToken", data.authToken);
+      // localStorage.setItem("currentUser", username);
+      console.log(data);
+      // getProjects(data);
+      showProjectsPage();
+    },
+    error: function(err) {
+      console.log(err);
+    }
+  };
+  $.ajax(settings);
+}
