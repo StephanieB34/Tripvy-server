@@ -139,7 +139,6 @@ function showProjectResults(projectArray) {
         <li>End Date:${project.endDate}</li>
       </ul>
       <button class="details">View Project Details</button>
-      <button class="update">Update</button>
       <button class="delete">Delete</button>
     </section>
   `);
