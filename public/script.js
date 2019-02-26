@@ -17,6 +17,7 @@ function showProjectsPage() {
   $("#projects-page").show();
 }
 
+
 /*********************landing page**************** */
 $("#log-in").on("click", function() {
   hideAllPages();
@@ -95,6 +96,11 @@ $(".edit-form").on("submit", function(e) {
   addProject(project);
 });
 
+$(".back-to-projects").on("click", function (e) {
+  e.preventDefault();
+  hideAllPages();
+  showProjectsPage();
+})
 /********************** REST FUNCTIONS ****************/
 
 function getProjects() {
