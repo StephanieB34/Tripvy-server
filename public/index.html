@@ -73,8 +73,8 @@
           <input
             type="password"
             placeholder="Type here"
-            name="login- password"
-            id="login- password"
+            name="login-password"
+            id="login-password"
             required
           />
          
@@ -87,11 +87,7 @@
     <!---------------------------signup-page--------------------------->
     <!--add required to each input-->
     <div id="signup-page" hidden>
-      <form
-        role="form"
-        accept-charset="UTF-8"
-        class="signup-form"
-      >
+      <form role="form" accept-charset="UTF-8" class="signup-form">
         <fieldset>
           <legend>Register</legend>
           <label for="first-name">First Name</label>
@@ -102,7 +98,7 @@
             id="first-name"
             required
           />
-          
+
           <label for="last-name">Last Name</label>
           <input
             type="text"
@@ -111,7 +107,7 @@
             id="last-name"
             required
           />
-          
+
           <label for="username">Username</label>
           <input
             type="text"
@@ -120,7 +116,7 @@
             id="signup-username"
             required
           />
-      
+
           <label for="password">Password</label>
           <input
             type="password"
@@ -129,7 +125,7 @@
             id="password"
             required
           />
-          
+
           <label for="retype-password">Retype Password</label>
           <input
             type="password"
@@ -150,7 +146,7 @@
       <div class="project-section">
         <h4>Projects</h4>
         <button id="project">Add a Project</button>
-        <br>
+        <br />
         <div id="project-results"></div>
       </div>
     </div>
@@ -159,6 +155,7 @@
 
     <div id="details-page" hidden>
       <div id="details">
+<<<<<<< HEAD
           <h5>Project Title</h5>
           <div id="details-start-date">Start Date:12/20/2020</div>
           <br>
@@ -171,10 +168,23 @@
           <button class="details-delete-button">Delete</button>
           <br>
           <h6>NOTES</h6>
+=======
+        <h5 id="details-project-title">Project Title</h5>
+        <div id="details-start-date">Start Date:12/20/2020</div>
+        <br />
+        <div id="details-budget">Budget:467</div>
+        <br />
+        <div id="details-materials">Materials Needed: paper, pens</div>
+        <br />
+        <div id="details-end-date">End Date:12/22/2020</div>
+        <br />
+        <button class="edit">Update</button>
+        <button class="details-delete-button">Delete</button>
+        <br />
+        <h6>NOTES</h6>
+>>>>>>> 9d518123d794bf272a1c0f87beb3d0f02f2d6b72
         <form class="notes-form">
-          <textarea 
-            placeholder="Write something">
-          </textarea>
+          <textarea placeholder="Write something"> </textarea>
         </form>
         <button class="back">Back to Projects</button>
       </div>
