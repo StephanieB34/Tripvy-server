@@ -73,9 +73,11 @@ $("#projects-page").on("click", ".details", function() {
     .attr("data-index");
   let project = state.projects[index];
 
-  $("#details-start-date").text("Start Date " + project.startDate);
+  $("#details-start-date").text("Start Date: " + project.startDate);
   $("#details-project-title").text(project.projectName);
-  // TODO: ALL other fields
+  $("#details-budget").text("Budget: " + project.budget);
+  $("#details-materials").text("Materials Needed: " + project.materialsNeeded);
+  $("#details-end-date").text("End Date: " + project.endDate);
   $("#details-page").show();
 });
 
@@ -104,12 +106,17 @@ $("#projects-page").on("click", ".delete", function() {
 
 /**********************details page****************/
 
-$("#update").on("click", function() {
-  hideAllPages();
-  $("#edit-page").show();
-});
 
 $(".back").on("click", showProjectsPage);
+
+$("#details-page").on("click", ".details-delete-button", function() {
+  let id = $(this)
+    .parent(".project-section")
+    .attr("data-id");
+  deleteProject(id);
+  //showProjectsPage();
+});
+
 
 /**************edit page************************/
 
@@ -230,6 +237,23 @@ function handleProjectDelete() {
     deleteProject(project);
   });
 }
+
+
+function handleProjectDelete() {
+  $(".details-delete-button").click(function(e) {
+    let project = {
+      projectName: $("#project-name").val(),
+      budget: $("#budget").val(),
+      materialsNeeded: $("#materials-needed").val(),
+      startDate: $("#start-date").val(),
+      endDate: $("#end-date").val()
+      /*id: */
+    };
+    deleteProject(project);
+  });
+}
+
+
 
 function register(user) {
   let settings = {

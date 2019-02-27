@@ -233,12 +233,14 @@ button[type="submit"] {
   font-size: 22px;
   font-weight: 500;
   text-align: center;
-  color: white;
-  background: darkslategray;
+  color: black;
+  background: lightgray;
   border: 0;
   cursor: pointer;
   margin-bottom: 0;
   float: right;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 /****************** SIGNUP PAGE ******************/
@@ -313,12 +315,14 @@ button[type="submit"] {
     font-size: 22px;
     font-weight: 500;
     text-align: center;
-    color: white;
-    background: darkslategray;
+    color: black;
+    background: lightgrey;
     border: 0;
     cursor: pointer;
     margin-bottom: 0;
     float: right;
+    padding: 10px;
+    border-radius: 5px;
   }
   
       
@@ -339,6 +343,7 @@ button[type="submit"] {
   background-color: white;
   margin-right: 5%;
   border-radius: 5px;
+  padding: 10px;
   
   
 }
@@ -429,8 +434,14 @@ h6 {
   margin-right: 3%;
   font-size: 15px;
   background-color: lightgrey;
+  border-radius: 5px;
+
 }
 
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+}
 
 
 /******************edit page*************************/
@@ -496,6 +507,7 @@ h6 {
     border: 0;
     cursor: pointer;
     margin-bottom: 10px;
+    border-radius: 5px;
   }
 
   .back-to-projects {
@@ -503,11 +515,13 @@ h6 {
     font-size: 22px;
     font-weight: 500;
     text-align: center;
-    color: white;
-    background: darkslategray;
+    color:black;
+    background: lightgray;
     border: 0;
     cursor: pointer;
     margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 
