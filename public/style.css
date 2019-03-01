@@ -360,23 +360,26 @@ h4{
     font-size: 15px;
     float: right;
     margin-right: 10%;
+    border-radius: 5px;
 }
 
 .details {
   background-color: lightgrey; 
   font-size: 15px;
+  border-radius: 5px;
  
 }
 
 .delete {
   background-color: lightgrey; 
   font-size: 15px;
-  
+  border-radius: 5px
 }
 
 .update {
   background-color: lightgrey; 
   font-size: 15px;
+  border-radius: 5px;
 
 }
 /********************details page**********************/
@@ -405,18 +408,13 @@ h5 {
    
 }
 
-.edit {
-    float: right;
-    margin-right: 10%;
-    font-size: 15px;
-    background-color: lightgray;
-}
 
 .details-delete-button {
     float: right;
     margin-right: 3%;
     font-size: 15px;
     background-color: lightgrey;
+    border-radius: 5px;
 }
 
 h6 {
@@ -437,6 +435,7 @@ h6 {
   border-radius: 5px;
 
 }
+
 
 textarea {
   box-sizing: border-box;

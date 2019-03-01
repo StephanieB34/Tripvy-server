@@ -109,12 +109,32 @@ $("#projects-page").on("click", ".delete", function() {
 
 $(".back").on("click", showProjectsPage);
 
+$("#details-page").on("click", ".details", function() {
+  hideAllPages();
+
+  let index = $(this)
+    .parent(".project-section")
+    .attr("data-index");
+  let project = state.projects[index];
+
+  $("#details-start-date").text("Start Date: " + project.startDate);
+  $("#details-project-title").text(project.projectName);
+  $("#details-budget").text("Budget: " + project.budget);
+  $("#details-materials").text("Materials Needed: " + project.materialsNeeded);
+  $("#details-end-date").text("End Date: " + project.endDate);
+  showProjectsPage();
+});
+  
+
+
+
+
 $("#details-page").on("click", ".details-delete-button", function() {
-  let id = $(this)
+ let id = $(this)
     .parent(".project-section")
     .attr("data-id");
   deleteProject(id);
-  //showProjectsPage();
+  showProjectsPage();
 });
 
 
@@ -239,7 +259,7 @@ function handleProjectDelete() {
 }
 
 
-function handleProjectDelete() {
+function handleDetailsDelete() {
   $(".details-delete-button").click(function(e) {
     let project = {
       projectName: $("#project-name").val(),
