@@ -125,13 +125,13 @@ h2 {
 }
 
 #landing-img-1 {
-  background-image: url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+  background-image: url("https://images.unsplash.com/photo-1490724500206-cd5482e02b9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
 }
 #landing-img-2 {
   background-image: url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
 }
 #landing-img-3 {
-  background-image: url("https://images.unsplash.com/photo-1515437689879-4dd6c1620d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+  background-image: url("https://images.unsplash.com/photo-1537779251995-eff7122caa2e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
 }
 
 .text-container {
@@ -181,8 +181,8 @@ fieldset {
 }
 
 .login-form {
-  width: 50%;
-  padding: 40px;
+  width: 60%;
+  padding: 30px;
   border-radius: 3px;
   background: white;
   margin: 0 auto;
@@ -400,7 +400,7 @@ h5 {
   
   
 #details {
-    width: 60%;
+    width: 70%;
     padding: 30px;
     border-radius: 5px;
     background: white;
@@ -410,11 +410,10 @@ h5 {
 
 
 .details-delete-button {
-    float: right;
-    margin-right: 3%;
     font-size: 15px;
     background-color: lightgrey;
     border-radius: 5px;
+    float: right;
 }
 
 h6 {
@@ -422,25 +421,25 @@ h6 {
     font-family: "Roboto", helvetica, sans-serif;
 }
 
-.notes-form {
+/*.notes-form {
     border: 10px solid rgba(105, 174, 178, 1);
     
-}
+}*/
 
 .back {
   float: right;
-  margin-right: 3%;
   font-size: 15px;
   background-color: lightgrey;
   border-radius: 5px;
-
+  margin-right: 3%;
+  
 }
 
 
-textarea {
+/*textarea {
   box-sizing: border-box;
   width: 100%;
-}
+}*/
 
 
 /******************edit page*************************/
