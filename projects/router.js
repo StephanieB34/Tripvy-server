@@ -1,12 +1,16 @@
 "use strict";
 const express = require("express");
+const passport = require("passport");
 const bodyParser = require("body-parser");
 const { Project } = require("./models");
 const router = express.Router();
 const jsonParser = bodyParser.json();
+const jwtAuth = passport.authenticate("jwt", { session: false });
 
-router.get("/", (req, res) => {
-  Project.find()
+router.get("/", jwtAuth, (req, res) => {
+  Project.find({
+    user: req.user.id
+  })
     .then(projects => {
       res.json(projects.map(project => project.serialize()));
     })
@@ -25,7 +29,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", jsonParser, (req, res) => {
+router.post("/", jwtAuth, jsonParser, (req, res) => {
   const requiredFields = [
     "projectName",
     "startDate",
@@ -47,7 +51,8 @@ router.post("/", jsonParser, (req, res) => {
     startDate: req.body.startDate,
     budget: req.body.budget,
     materialsNeeded: req.body.materialsNeeded,
-    endDate: req.body.endDate
+    endDate: req.body.endDate,
+    user: req.user.id
   })
     .then(project => res.status(201).json(project.serialize()))
     .catch(err => {

@@ -23,6 +23,10 @@ const ProjectSchema = mongoose.Schema({
   },
   endDate: {
     type: String
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
   }
 });
 

@@ -1,9 +1,15 @@
-var button = $("button");
 let PROJECT_URL = "project";
-let user = localStorage.getItem("currentUser");
+
 let state = {
-  projects: []
+  projects: [],
+  token: localStorage.getItem("authToken")
 };
+
+$(function() {
+  if (state.token) {
+    showProjectsPage();
+  }
+});
 
 function hideAllPages() {
   $("#landing-page").hide();
@@ -78,6 +84,7 @@ $("#projects-page").on("click", ".details", function() {
   $("#details-budget").text("Budget: " + project.budget);
   $("#details-materials").text("Materials Needed: " + project.materialsNeeded);
   $("#details-end-date").text("End Date: " + project.endDate);
+  $("#details").attr("data-index", project.id);
   $("#details-page").show();
 });
 
@@ -94,6 +101,7 @@ $("#project").on("click", function() {
 $("#log-out").on("click", function() {
   hideAllPages();
   $("#landing-page").show();
+  localStorage.setItem("authToken", "");
 });
 
 $("#projects-page").on("click", ".delete", function() {
@@ -106,38 +114,15 @@ $("#projects-page").on("click", ".delete", function() {
 
 /**********************details page****************/
 
-
 $(".back").on("click", showProjectsPage);
 
-$("#details-page").on("click", ".details", function() {
-  hideAllPages();
-
-  let index = $(this)
-    .parent(".project-section")
+$("#details-page").on("click", ".details-delete-button", function() {
+  let id = $(this)
+    .parent("#details")
     .attr("data-index");
-  let project = state.projects[index];
-
-  $("#details-start-date").text("Start Date: " + project.startDate);
-  $("#details-project-title").text(project.projectName);
-  $("#details-budget").text("Budget: " + project.budget);
-  $("#details-materials").text("Materials Needed: " + project.materialsNeeded);
-  $("#details-end-date").text("End Date: " + project.endDate);
-  $("#details").attr("data-index" , project.id);
-  console.log(project.id);
-  console.log(project.budget);
+  deleteProject(id);
   showProjectsPage();
 });
-  
-
-$("#details-page").on("click", ".details-delete-button", function() {
- let id = $(this)
-    .parent("#details")
-    .attr("data-id");
-    alert(id);
-  //deleteProject(id);
-  //showProjectsPage();
-});
-
 
 /**************edit page************************/
 
@@ -182,9 +167,7 @@ function getProjects() {
 
 function showProjectResults(projectArray) {
   console.log(projectArray);
-
   $("#project-results").empty();
-
   for (var i = 0; i < projectArray.length; i++) {
     let project = projectArray[i];
     $("#project-results").append(`
@@ -259,7 +242,6 @@ function handleProjectDelete() {
   });
 }
 
-
 /*function handleDetailsDelete() {
   $(".details-delete-button").click(function(e) {
     let project = {
@@ -273,7 +255,6 @@ function handleProjectDelete() {
   });
 }*/
 
-
 function register(user) {
   let settings = {
     url: "api/users/",
@@ -282,7 +263,8 @@ function register(user) {
     data: JSON.stringify(user),
     success: function(data) {
       console.log("successfully registered", data);
-      showProjectsPage();
+      hideAllPages();
+      $("#login-page").show();
     },
     error: function(err) {
       console.log(err);
@@ -301,7 +283,6 @@ function register(user) {
 }
 
 function login(userInfo) {
-  console.log(userInfo);
   let settings = {
     url: "/api/auth/login",
     type: "POST",
@@ -309,10 +290,8 @@ function login(userInfo) {
     data: JSON.stringify(userInfo),
     success: function(data) {
       console.log("successfully logged in");
-      // localStorage.setItem("authToken", data.authToken);
-      // localStorage.setItem("currentUser", username);
-      console.log(data);
-      // getProjects(data);
+      localStorage.setItem("authToken", data.authToken);
+      state.token = data.authToken;
       showProjectsPage();
     },
     error: function(err) {
