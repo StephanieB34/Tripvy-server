@@ -122,19 +122,20 @@ $("#details-page").on("click", ".details", function() {
   $("#details-budget").text("Budget: " + project.budget);
   $("#details-materials").text("Materials Needed: " + project.materialsNeeded);
   $("#details-end-date").text("End Date: " + project.endDate);
+  $("#details").attr("data-index" , project.id);
+  console.log(project.id);
+  console.log(project.budget);
   showProjectsPage();
 });
   
 
-
-
-
 $("#details-page").on("click", ".details-delete-button", function() {
  let id = $(this)
-    .parent(".project-section")
+    .parent("#details")
     .attr("data-id");
-  deleteProject(id);
-  showProjectsPage();
+    alert(id);
+  //deleteProject(id);
+  //showProjectsPage();
 });
 
 
@@ -259,7 +260,7 @@ function handleProjectDelete() {
 }
 
 
-function handleDetailsDelete() {
+/*function handleDetailsDelete() {
   $(".details-delete-button").click(function(e) {
     let project = {
       projectName: $("#project-name").val(),
@@ -267,12 +268,10 @@ function handleDetailsDelete() {
       materialsNeeded: $("#materials-needed").val(),
       startDate: $("#start-date").val(),
       endDate: $("#end-date").val()
-      /*id: */
     };
     deleteProject(project);
   });
-}
-
+}*/
 
 
 function register(user) {
