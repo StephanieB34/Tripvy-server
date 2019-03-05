@@ -102,6 +102,7 @@ $("#log-out").on("click", function() {
   hideAllPages();
   $("#landing-page").show();
   localStorage.setItem("authToken", "");
+  $("#log-out").hide();
 });
 
 $("#projects-page").on("click", ".delete", function() {
@@ -268,14 +269,12 @@ function register(user) {
     },
     error: function(err) {
       console.log(err);
-      if (password.length < 10) {
-        $("#errorTenChar").html("Password must be at least 10 characters");
+      console.log(user);
+      if (user.password.length < 10) {
+        $("#signup-error").html("Password must be at least 10 characters");
       }
-      if (password.length !== retypePass.length) {
-        $("#errorMatchPass").html("Passwords must match");
-      }
-      if (password !== retypePass) {
-        $("#errorMatchPass").html("Passwords must match");
+      if (user.password !== user.retype) {
+        $("#signup-error").html("Passwords must match");
       }
     }
   };
@@ -293,9 +292,11 @@ function login(userInfo) {
       localStorage.setItem("authToken", data.authToken);
       state.token = data.authToken;
       showProjectsPage();
+      $("#log-out").show();
     },
     error: function(err) {
       console.log(err);
+      $("#login-error").html("Incorrect Credentials");
     }
   };
   $.ajax(settings);

@@ -326,6 +326,9 @@ button[type="submit"] {
     border-radius: 5px;
   }
   
+  #signup-error {
+    color: red;
+  }
       
 /*******************projects page***********************/
 
