@@ -12,19 +12,19 @@ body {
 /****************** COMMON ******************/
 
 #nav {
-  background-color: rgb(41, 201, 113);
+  background-color: lightgrey;
   position: fixed;
   top: 0px;
   width: 100%;
   height: 30px;
-  border-bottom: 1px solid black;
+  /*border-bottom: 1px solid black;*/
 }
 header {
   float: left;
   color:black;
   margin: 0 10px;
   font-size: 18px; 
-  font-family: "Roboto", helvetica, sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 #log-out {
@@ -41,7 +41,7 @@ header {
   right: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(41, 201, 113);
+  background-color: lightgrey;
   color: black;
   text-align: center;
   border-top: 1px solid black;
@@ -84,7 +84,7 @@ h2 {
 
 .text-block {
   width: 100%;
-  background-color: white;
+  /*background-color: white;*/
   padding: 15px;
   display: inline-block;
   box-sizing: border-box;
@@ -126,6 +126,7 @@ h2 {
 
 #landing-img-1 {
   background-image: url("https://images.unsplash.com/photo-1490724500206-cd5482e02b9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+  width: 100%;
 }
 #landing-img-2 {
   background-image: url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
@@ -421,10 +422,10 @@ h6 {
     font-family: "Roboto", helvetica, sans-serif;
 }
 
-/*.notes-form {
+.notes-form {
     border: 10px solid rgba(105, 174, 178, 1);
     
-}*/
+}
 
 .back {
   float: right;
@@ -436,10 +437,10 @@ h6 {
 }
 
 
-/*textarea {
+textarea {
   box-sizing: border-box;
   width: 100%;
-}*/
+}
 
 
 /******************edit page*************************/
