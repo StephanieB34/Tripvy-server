@@ -91,7 +91,7 @@ h2 {
   font-size: 18px;
   margin-bottom: 10%;
   border: 2px solid black;
-  min-height: 215px;
+  min-height: 320px;
   font-family: "Roboto", helvetica, sans-serif;
 }
 
@@ -161,6 +161,11 @@ h2 {
   width: 25%;
   font-size: 20px;
   font-family: "Roboto", helvetica, sans-serif;
+}
+
+h3 {
+  text-align: center;
+
 }
 
 /****************** LOGIN PAGE ******************/
