@@ -17,7 +17,7 @@ body {
   top: 0px;
   width: 100%;
   height: 30px;
-  /*border-bottom: 1px solid black;*/
+  border-bottom: 1px solid black;
 }
 header {
   float: left;
@@ -101,7 +101,7 @@ h2 {
   font-size: 18px;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 10%;
+  margin-top: 5%;
   font-family: "Roboto", helvetica, sans-serif;
 }
 
@@ -117,8 +117,8 @@ h2 {
 }
 
 .landing-img {
-  height: 100px;
-  max-width: 200px;
+  height: 200px;
+  max-width: 300px;
   margin: 0 auto;
   background-size: cover;
   background-position: center;
@@ -126,7 +126,7 @@ h2 {
 
 #landing-img-1 {
   background-image: url("https://images.unsplash.com/photo-1490724500206-cd5482e02b9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
-  width: 100%;
+  
 }
 #landing-img-2 {
   background-image: url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
@@ -264,7 +264,7 @@ button[type="submit"] {
   }
   
   .signup-form {
-    width: 60%;
+    width: 70%;
     padding: 40px;
     border-radius: 3px;
     background: white;
@@ -348,23 +348,29 @@ button[type="submit"] {
   margin-right: 5%;
   border-radius: 5px;
   padding: 10px;
-  
-  
+  border: 2px solid black;
 }
 
 h4{
   text-align: center;
-  font-size: 20px;
+  font-size: 30px;
+  color: rgba(105, 174, 178, 1);
+  font: bold;
   
 }
 
+.project-section p {
+  font-size: 20px;
 
+}
 #project {
     background-color: lightgrey; 
     font-size: 15px;
     float: right;
     margin-right: 10%;
     border-radius: 5px;
+    
+   
 }
 
 .details {
@@ -564,9 +570,6 @@ textarea {
     padding: 10px 0 0 ;
   }
 
-  /*textarea {
-    grid-row: 15;
-    columns: 100;
-  }*/
-}
 
+}
+  

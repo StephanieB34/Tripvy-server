@@ -149,8 +149,8 @@
 
     <div id="projects-page" hidden>
       <div class="project-section">
-        <h4>Projects</h4>
         <button id="project">Add a Project</button>
+        <h4>Projects</h4>
         <br />
         <div id="project-results"></div>
       </div>
@@ -171,11 +171,11 @@
         <br />
         <button class="details-delete-button">Delete</button>
         
-        <h6>NOTES</h6>
+        <!----<h6>NOTES</h6>
 
         <form class="notes-form">
           <textarea id="text"></textarea>
-        </form>
+        </form>----->
         <button class="back">Back to Projects</button>
       </div>
     </div>
@@ -192,6 +192,7 @@
             placeholder="Type here"
             name="project-name"
             id="project-name"
+            required
           />
           <label for="start-date">Start Date</label>
           <input
@@ -199,6 +200,7 @@
             placeholder="Type here"
             name="sdate"
             id="start-date"
+            required
           />
           <label for="budget">Budget</label>
           <input
@@ -206,6 +208,7 @@
             placeholder="Type here"
             name="budget"
             id="budget"
+            required
           />
           <label for="materials">Materials Needed</label>
           <input
@@ -213,6 +216,7 @@
             placeholder="Type here"
             name="materials"
             id="materials"
+            required
           />
           <label for="end-date">End Date</label>
           <input
@@ -220,6 +224,7 @@
             placeholder="Type here"
             name="edate"
             id="end-date"
+            required
           />
           <button type="submit" class="create-project">Create</button>
           <button class="back-to-projects">Back</button>

@@ -8,6 +8,7 @@ let state = {
 $(function() {
   if (state.token) {
     showProjectsPage();
+    $("#log-out").show();
   }
 });
 
@@ -136,6 +137,9 @@ $(".edit-form").on("submit", function(e) {
     startDate: $("#start-date").val(),
     endDate: $("#end-date").val()
   };
+  $("#project-name").val("")
+  $("#budget").val("");
+
   addProject(project);
 });
 
