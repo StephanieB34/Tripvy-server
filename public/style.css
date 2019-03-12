@@ -69,6 +69,9 @@ h7 {
   margin-top: 2%;
 }
 
+#landing-page {
+  overflow: scroll;
+}
 h1 {
   padding-top: 12%;
   font-size: 30px;
@@ -163,8 +166,9 @@ h2 {
   font-family: "Roboto", helvetica, sans-serif;
 }
 
-h3 {
+h8 {
   text-align: center;
+  margin-bottom: 15%;
 
 }
 
