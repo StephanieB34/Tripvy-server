@@ -349,6 +349,7 @@ button[type="submit"] {
     font-size: 18px;
     height: 100%;
     overflow: scroll;
+    
 }
 
 .project-section {
@@ -358,6 +359,7 @@ button[type="submit"] {
   border-radius: 5px;
   padding: 10px;
   border: 2px solid black;
+  margin-bottom: 5%;
 }
 
 h4{
@@ -369,7 +371,8 @@ h4{
 }
 
 .project-section p {
-  font-size: 20px;
+  font-size: 25px;
+  
 
 }
 #project {
