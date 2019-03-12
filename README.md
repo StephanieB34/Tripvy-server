@@ -20,5 +20,34 @@ Access the live version of my app here!
 https://calm-dawn-28828.herokuapp.com/
 
 Demo :
+
 Username : demo
+
 Password: 12345678910
+
+TECHNOLOGY
+
+Front End:
+
+  HTML
+  CSS
+  JavaScript
+  jQuery
+  AJAX JSON
+  
+Back End:
+
+  Node.js
+  Express
+  Mocha
+  Chai
+  Mongo
+  Mongoose
+  bcryptjs
+  Passport
+  
+Programs:
+
+  Heroku
+  mLab
+  TravisCI
