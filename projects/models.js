@@ -4,25 +4,14 @@ const mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
 
-const ProjectSchema = mongoose.Schema({
-  projectName: {
+const TripSchema = mongoose.Schema({
+  location: {
     type: String,
     required: true
   },
-  budget: {
-    type: Number,
-    default: 0
-  },
-  materialsNeeded: {
+  itemsNeeded: {
     type: String,
     default: ""
-  },
-  startDate: {
-    type: String,
-    required: true
-  },
-  endDate: {
-    type: String
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -30,17 +19,14 @@ const ProjectSchema = mongoose.Schema({
   }
 });
 
-ProjectSchema.methods.serialize = function() {
+TripSchema.methods.serialize = function() {
   return {
-    projectName: this.projectName || "",
-    budget: this.budget || "",
-    materialsNeeded: this.materialsNeeded || "",
-    startDate: this.startDate || "",
-    endDate: this.endDate || "",
+    location: this.location || "",
+    itemsNeeded: this.itemsNeeded || "",
     id: this._id
   };
 };
 
-const Project = mongoose.model("Project", ProjectSchema);
+const Trip = mongoose.model("Trip", TripSchema);
 
-module.exports = { Project };
+module.exports = { Trip };

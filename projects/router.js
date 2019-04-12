@@ -8,11 +8,11 @@ const jsonParser = bodyParser.json();
 const jwtAuth = passport.authenticate("jwt", { session: false });
 
 router.get("/", jwtAuth, (req, res) => {
-  Project.find({
+  Trip.find({
     user: req.user.id
   })
-    .then(projects => {
-      res.json(projects.map(project => project.serialize()));
+    .then(trips => {
+      res.json(trips.map(trip => trip.serialize()));
     })
     .catch(err => {
       console.error(err);
@@ -21,8 +21,8 @@ router.get("/", jwtAuth, (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  Project.findById(req.params.id)
-    .then(project => res.json(project.serialize()))
+  Trip.findById(req.params.id)
+    .then(trip => res.json(trip.serialize()))
     .catch(err => {
       console.error(err);
       res.status(500).json({ error: "something went horribly awry" });
@@ -31,11 +31,8 @@ router.get("/:id", (req, res) => {
 
 router.post("/", jwtAuth, jsonParser, (req, res) => {
   const requiredFields = [
-    "projectName",
-    "startDate",
-    "budget",
-    "materialsNeeded",
-    "endDate"
+    "location",
+    "itemsNeeded"
   ];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -46,15 +43,12 @@ router.post("/", jwtAuth, jsonParser, (req, res) => {
     }
   }
 
-  Project.create({
-    projectName: req.body.projectName,
-    startDate: req.body.startDate,
-    budget: req.body.budget,
-    materialsNeeded: req.body.materialsNeeded,
-    endDate: req.body.endDate,
+  Trip.create({
+    location: req.body.location,
+    itemsNeeded: req.body.itemsNeeded,
     user: req.user.id
   })
-    .then(project => res.status(201).json(project.serialize()))
+    .then(trip => res.status(201).json(trip.serialize()))
     .catch(err => {
       console.error(err);
       res.status(500).json({ error: "Something went wrong" });
@@ -62,7 +56,7 @@ router.post("/", jwtAuth, jsonParser, (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  Project.findByIdAndRemove(req.params.id)
+  Trip.findByIdAndRemove(req.params.id)
     .then(() => {
       res.status(204).json({ message: "success" });
     })
@@ -81,11 +75,8 @@ router.put("/:id", jsonParser, (req, res) => {
 
   const updated = {};
   const updateableFields = [
-    "projectName",
-    "startDate",
-    "budget",
-    "materialsNeeded",
-    "endDate"
+    "location",
+    "itemsNeeded"
   ];
   updateableFields.forEach(field => {
     if (field in req.body) {
@@ -93,8 +84,8 @@ router.put("/:id", jsonParser, (req, res) => {
     }
   });
 
-  Project.findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
-    .then(updatedProject => res.status(204).end())
+  Trip.findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
+    .then(updatedTrip => res.status(204).end())
     .catch(err => res.status(500).json({ message: "Something went wrong" }));
 });
 

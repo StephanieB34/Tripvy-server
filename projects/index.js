@@ -1,6 +1,6 @@
 "use strict";
-const { Project } = require("./models");
+const { Trip } = require("./models");
 const { router } = require("./router");
 
-module.exports = { Project, router };
+module.exports = { Trip, router };
     
