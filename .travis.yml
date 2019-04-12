@@ -4,7 +4,7 @@ deploy:
   provider: heroku
   api_key:
     secure: i5EMo/YILyWP91uJPxXB7pMxMhsOWsc0zh+QkPpWfyF7kMqCtp5pEWlTEMVxKTscQdts1VitPlHPPR2fJrnxrO22aU+azrdrnupvn5oMGgtMz4xPOfr0iw5OuNu/z8l8yKz7pyjIOwAEss8x5GQuvEAxOyXqkFn+5iZm16HF6djSbHVaVMAz+iD+il5J8XXmHmRsDw7ay+Vi60xTRRMRP9/cW3uGf2HNeWT+gK0nofoW6cNqknJLWNeXKS3yGcRUqF8Qw3DBjVudpggfhkGkEVfNjz60BMRcHF7aMd9125SIfhopsaBhbk/AwU7eirHSR/J6NdH+3DzTiEIUYR1MazVNzETjBESBFLrpWEyxnYlNXF2TuLw4/Ee+1pnSgUMlVKh6NfABKaJMqsq/FlRzp7KIfcOt8mYCMs7sHjA6/9yyGZWiYA2nmsFNJd9NjMoGQgavAOZt1FWfFeDIA8nm2uK1ie3fDM4VEq8Re/Y/j4wgzSXuNsGKNGEXWGFIKDVVeEpjIDED9Ahk6uKNLRyIL1YqTtfc1FvBhlCrJsxlKeaMfXb6YbzxeSoKQldMpoBr/n1rY4p5MdWv3rMVmcHf8COUj3XRqSWn5lF4TtkNh1ucwu9imuOGzphi+amc6fMoqv/PbBob/NuQNIzOLbccSrw8HHz8GXOtz1AOlgzqdtc=
-  app:  https://git.heroku.com/infinite-springs-56902.git
+  app:  
 
   on:
-    repo: StephanieB34/Project-Planner
+    repo: StephanieB34/Tripvy-server
