@@ -2,7 +2,7 @@
 const express = require("express");
 const passport = require("passport");
 const bodyParser = require("body-parser");
-const { Project } = require("./models");
+const { Trip } = require("./models");
 const router = express.Router();
 const jsonParser = bodyParser.json();
 const jwtAuth = passport.authenticate("jwt", { session: false });
