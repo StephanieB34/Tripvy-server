@@ -7,18 +7,21 @@ const router = express.Router();
 const jsonParser = bodyParser.json();
 const jwtAuth = passport.authenticate("jwt", { session: false });
 
-router.get("/", jwtAuth, (req, res) => {
-  Trip.find({
-    user: req.user.id
-  })
-    .then(trips => {
-      res.json(trips.map(trip => trip.serialize()));
+router.get(
+  "/",
+  /* jwtAuth, */ (req, res) => {
+    Trip.find({
+      //  user: req.user.id
     })
-    .catch(err => {
-      console.error(err);
-      res.status(500).json({ error: "something went terribly wrong" });
-    });
-});
+      .then(trips => {
+        res.json(trips.map(trip => trip.serialize()));
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({ error: "something went terribly wrong" });
+      });
+  }
+);
 
 router.get("/:id", (req, res) => {
   Trip.findById(req.params.id)
@@ -29,11 +32,8 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", jwtAuth, jsonParser, (req, res) => {
-  const requiredFields = [
-    "location",
-    "itemsNeeded"
-  ];
+router.post("/", /*jwtAuth, */ jsonParser, (req, res) => {
+  const requiredFields = ["location", "itemsNeeded"];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -74,10 +74,7 @@ router.put("/:id", jsonParser, (req, res) => {
   }
 
   const updated = {};
-  const updateableFields = [
-    "location",
-    "itemsNeeded"
-  ];
+  const updateableFields = ["location", "itemsNeeded"];
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];

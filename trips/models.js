@@ -10,8 +10,8 @@ const TripSchema = mongoose.Schema({
     required: true
   },
   itemsNeeded: {
-    type: String,
-    default: ""
+    type: [String],
+    default: []
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -22,8 +22,9 @@ const TripSchema = mongoose.Schema({
 TripSchema.methods.serialize = function() {
   return {
     location: this.location || "",
-    itemsNeeded: this.itemsNeeded || "",
-    id: this._id
+    itemsNeeded: this.itemsNeeded || [],
+    id: this._id,
+    user: this.user
   };
 };
 
