@@ -46,7 +46,7 @@ router.post("/", /*jwtAuth, */ jsonParser, (req, res) => {
   Trip.create({
     location: req.body.location,
     itemsNeeded: req.body.itemsNeeded,
-    user: req.user.id
+    /*user: req.user.id*/
   })
     .then(trip => res.status(201).json(trip.serialize()))
     .catch(err => {
