@@ -7,21 +7,18 @@ const router = express.Router();
 const jsonParser = bodyParser.json();
 const jwtAuth = passport.authenticate("jwt", { session: false });
 
-router.get(
-  "/",
-  /* jwtAuth, */ (req, res) => {
-    Trip.find({
-      //  user: req.user.id
+router.get("/", jwtAuth, (req, res) => {
+  Trip.find({
+    user: req.user.id
+  })
+    .then(trips => {
+      res.json(trips.map(trip => trip.serialize()));
     })
-      .then(trips => {
-        res.json(trips.map(trip => trip.serialize()));
-      })
-      .catch(err => {
-        console.error(err);
-        res.status(500).json({ error: "something went terribly wrong" });
-      });
-  }
-);
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: "something went terribly wrong" });
+    });
+});
 
 router.get("/:id", (req, res) => {
   Trip.findById(req.params.id)
@@ -32,7 +29,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", /*jwtAuth, */ jsonParser, (req, res) => {
+router.post("/", jwtAuth, jsonParser, (req, res) => {
   const requiredFields = ["location", "itemsNeeded"];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -46,7 +43,7 @@ router.post("/", /*jwtAuth, */ jsonParser, (req, res) => {
   Trip.create({
     location: req.body.location,
     itemsNeeded: req.body.itemsNeeded,
-    /*user: req.user.id*/
+    user: req.user.id
   })
     .then(trip => res.status(201).json(trip.serialize()))
     .catch(err => {
